@@ -1,0 +1,43 @@
+<wm-page pagetitle="Pending RMAs" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                        <wm-label padding="unset" name="label1" class="h2 font-bold" caption="Pending RMAs"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                        <wm-table statehandler="none" name="RmaTable1" title="" dataset="bind:Variables.dbPendingApprovalRMAs.dataSet" navigation="Basic" showrecordcount="true" navigationalign="right">
+                            <wm-table-column binding="rmaNumber" caption="RMA Number" widget-type="undefined" width="140px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false"></wm-table-column>
+                            <wm-table-column binding="jobRequest.productSerial.product.model" caption="Product Name" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="serviceArea.areaName" caption="Area" width="80px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                            <wm-table-column binding="serviceType.type" caption="Type" width="112px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                            <wm-table-column binding="quotationAmount" caption="Quotation" widget-type="label" width="110px" edit-widget-type="number" show="true" type="integer" generator="assigned" readonly="false">
+                                <wm-label caption="bind:row.getProperty('quotationAmount') | toCurrency: '₹'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                            </wm-table-column>
+                            <wm-table-column binding="serviceMode.name" caption="Mode" width="100px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                            <wm-table-column binding="jobRequest.productSerial.customer.name" caption="Customer Name" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="jobRequest.serviceCenter" caption="Service Center" width="150px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                            <wm-table-column binding="createdOn" caption="Created On" width="110px" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="rowOperations" caption="Actions" width="140px" edit-widget-type="text" searchable="false" show="true" type="custom" readonly="true" sortable="false"></wm-table-column>
+                            <wm-table-row-action key="customRow" display-name="Approve" show="true" iconclass="" title="" action="Variables.svApproveRMA.invoke()" disabled="false" widget-type="anchor"></wm-table-row-action>
+                            <wm-table-row-action key="customRow1" display-name="Reject" show="true" class="text-danger" iconclass="" title="Reject" action="RmaTable1_customRow1Action($event, row)" disabled="false" widget-type="anchor"></wm-table-row-action>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Reject RMA?" iconclass="" name="dialogRejectRMA" class="modal-sm">
+        <wm-dialogactions name="dialogactions1" show="true">
+            <wm-button class="btn-default btn-sm btn app-button" caption="Cancel" type="button" margin="unset" name="button3" on-click="Widgets.dialogRejectRMA.close()"></wm-button>
+            <wm-button class="btn-danger btn-sm btn app-button" caption="Reject" type="button" margin="unset" name="buttonRejectRMA" on-click="Variables.svRejectRMA.invoke()"></wm-button>
+        </wm-dialogactions>
+        <wm-label padding="unset" name="label6" class="h4" caption="Are you sure you want to reject the RMA?" textalign="center" margin="32px unset"></wm-label>
+    </wm-dialog>
+</wm-page>

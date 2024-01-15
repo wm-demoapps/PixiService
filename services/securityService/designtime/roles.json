@@ -1,0 +1,19 @@
+[ {
+  "name" : "Service Coordinator",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Dashboard"
+  }
+}, {
+  "name" : "Approver",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "PendingRMAs"
+  }
+}, {
+  "name" : "Engineer",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "MyRMAs"
+  }
+} ]

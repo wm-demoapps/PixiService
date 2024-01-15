@@ -1,0 +1,32 @@
+{
+  "description" : null,
+  "methods" : {
+    "generatePDF" : [ {
+      "url" : {
+        "value" : "/generatePDF",
+        "modified" : false
+      },
+      "method" : {
+        "value" : "POST",
+        "modified" : false
+      },
+      "accessSpecifier" : "APP_ONLY",
+      "parameters" : {
+        "invoiceRequest" : {
+          "name" : {
+            "value" : "invoiceRequest",
+            "modified" : false
+          },
+          "in" : {
+            "value" : "BODY",
+            "modified" : false
+          },
+          "required" : {
+            "value" : true,
+            "modified" : true
+          }
+        }
+      }
+    } ]
+  }
+}

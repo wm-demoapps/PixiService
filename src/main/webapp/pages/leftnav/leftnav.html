@@ -1,0 +1,22 @@
+<wm-partial name="leftnav" type="leftnav">
+    <wm-nav name="leftnavigation" type="pills" layout="stacked">
+        <wm-nav-item name="list_dashboard" accessroles="Service Coordinator">
+            <wm-anchor caption="Dashboard" name="dashboardLink" iconclass="pi-dashboard" on-click="Actions.goToPage_Dashboard.invoke()" accessroles="Everyone"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_order" accessroles="Service Coordinator">
+            <wm-anchor caption="Job Requests" name="orderLink" iconclass="pi-job-request" on-click="Actions.goToPage_JobRequests.invoke()" accessroles="Everyone"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_inventory" accessroles="Service Coordinator">
+            <wm-anchor caption="Outstanding RMAs" name="inventoryLink" iconclass="pi-rmas" on-click="Actions.goToPage_OutstandingRMAs.invoke()" accessroles="Everyone"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_support" accessroles="Service Coordinator">
+            <wm-anchor caption="Closed Calls" name="supportLink" iconclass="pi-closed-calls" on-click="Actions.goToPage_ClosedRMAs.invoke()" accessroles="Everyone"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item5" accessroles="Approver">
+            <wm-anchor name="anchor5" iconclass="pi-rmas" caption="Pending RMAs" on-click="Actions.goToPage_PendingRMAs.invoke()" accessroles="Everyone"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item6" accessroles="Engineer">
+            <wm-anchor name="anchor6" iconclass="pi-rmas" caption="My RMAs" on-click="Actions.goToPage_MyRMAs.invoke()" accessroles="Everyone"></wm-anchor>
+        </wm-nav-item>
+    </wm-nav>
+</wm-partial>

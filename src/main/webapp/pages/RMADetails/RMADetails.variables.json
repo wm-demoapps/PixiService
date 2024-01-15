@@ -1,0 +1,28 @@
+{
+  "svGetRMA" : {
+    "_id" : "wm-svGetRMA-wm.ServiceVariable-1698408002343",
+    "name" : "svGetRMA",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "id",
+      "value" : "bind:pageParams.rmaId",
+      "type" : "integer"
+    } ],
+    "type" : "com.wavemaker.servicetracker.supportdb.Rma",
+    "service" : "SupportDB",
+    "operation" : "getRma",
+    "operationId" : "RmaController_getRma",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Rma"
+  }
+}

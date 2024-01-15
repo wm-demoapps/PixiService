@@ -1,0 +1,67 @@
+.wm-app .app-content .app-content-row .app-content-column.login {
+    background: var(--login-bg);
+    padding: 0;
+}
+
+.wm-app .app-login {
+    overflow: visible;
+    width: 100%;
+}
+
+.wm-app .login-bg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.wm-app .login-panel {
+    border-radius: 6px;
+    overflow: hidden;
+    width: 783px;
+}
+
+.wm-app .app-grid-column.login-col-left {
+    min-width: 361px;
+    padding: 44px 30px;
+    background: rgba(246, 248, 251, 1);
+    box-shadow: 0px 0px 100px 0px rgba(101, 174, 229, 0.17) inset;
+}
+
+.wm-app .flex-no-wrap {
+    flex-wrap: nowrap !important;
+}
+
+.wm-app .app-form.login-form.app-login-form {
+    box-shadow: none;
+    padding: 98px 43px 110px;
+    /* //24px 43px; */
+    min-width: 100%;
+}
+
+.wm-app .app-form.login-form .panel-heading {
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.wm-app .app-form.login-form .panel-heading .panel-title {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.wm-app .app-form.login-form .panel-heading .panel-title .heading {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.wm-app .app-form.login-form .panel-body {
+    padding: 0;
+}
+
+.wm-app app-page-login .app-form.login-form .panel-body .form-elements {
+    margin: 0;
+}
+
+.wm-app .btn-primary {
+    box-shadow: 0px 20px 40px 0px rgba(14, 52, 147, 0.2);
+}

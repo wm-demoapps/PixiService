@@ -1,0 +1,300 @@
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-size: 13px;
+            background-color: #fff;
+            margin: 0;
+            padding: 24px;
+            color: rgb(105, 112, 119);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        hr {
+            margin: 16px 0;
+            border: 0.5px solid rgb(222, 222, 222);
+        }
+
+        .text-active {
+            color: rgb(68, 68, 68);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: rgb(34, 34, 34);
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        h5 {
+            font-size: 12px;
+            font-weight: normal;
+            color: rgb(105, 112, 119);
+            text-transform: uppercase;
+        }
+
+        .text-blue {
+            color: rgb(15, 98, 254);
+        }
+
+        .m-top-4 {
+            margin-top: 4px;
+        }
+
+        .m-top-12 {
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            padding: 8px 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        tr {
+            /* border: 1px solid #000; */
+        }
+
+        th:not(:first-child):not(:last-child),
+        td:not(:first-child):not(:last-child) {
+            border: 1px solid rgba(221, 223, 225, 1);
+            border-width: 1px 0;
+        }
+
+        td,
+        th {
+            border: 1px solid rgba(221, 223, 225, 1);
+        }
+
+        th:first-child,
+        td:first-child {
+            border-radius: 4px 0 0 4px;
+            border-right: none;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-radius: 0 4px 4px 0;
+            border-left: none;
+        }
+
+        th {
+            text-align: left;
+            border: none !important;
+            background-color: rgb(246, 246, 246);
+            font-weight: normal;
+        }
+
+        td {
+            color: rgb(33, 39, 42);
+        }
+
+        .row {
+            display: block;
+            clear: left;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .col {
+            display: inline-block;
+            float: left;
+            min-height: 1px;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        .col-11 {
+            width: 91.66666667%;
+        }
+
+        .col-10 {
+            width: 83.33333333%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-8 {
+            width: 66.66666667%;
+        }
+
+        .col-7 {
+            width: 58.33333333%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-5 {
+            width: 41.66666667%;
+        }
+
+        .col-4 {
+            width: 33.33333333%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-2 {
+            width: 16.66666667%;
+        }
+
+        .col-1 {
+            width: 8.33333333%;
+        }
+
+        b {
+            display: inherit;
+        }
+
+        p+p,
+        p+b,
+        b+p {
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Invoice <img src="" alt="Pixi Logo"></h2>
+    <hr/>
+    <div class="row">
+        <div class="col col-6" style="padding-right: 40px;">
+            <p>Bill From</p>
+            <div class="m-top-4">
+                <b class="text-active">Pixi Service Center</b>
+                <p>Unit No. F3 & 4, 2nd Floor, Shree Krishna Complex, 1026, Sukrawar Peth, Tilak Road, Swargate, Opp. Maratha Chamber of Commerce, Pune - 411002
+                </p>
+                <p class="m-top-12">Tel : 020-29980641</p>
+            </div>
+        </div>
+        <div class="col col-6">
+            <p>Bill To</p>
+            <div class="m-top-4">
+                <b class="text-active">${CustomerName}</b>
+                <p>${CustomerAddress}</p>
+                <p class="m-top-12">Tel : ${CustomerMobileNumber}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col col-6">
+            <p>Issued on</p>
+            <b class="text-active">${IssuedDate}</b>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col col-12">
+            <h5>Repair Activity</h5>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 16px;">
+        <div class="col col-4">
+            <p>Engineer Details</p>
+            <b class="text-active">${EngineerName}</b>
+            <p style="font-size: 10px;">${EngineerId}</p>
+        </div>
+        <div class="col col-4">
+            <p>Repair date & time</p>
+            <b class="text-active">${ActivityDate}</b>
+        </div>
+        <div class="col col-4">
+            <p>Fault Analysis</p>
+            <b class="text-active">${FaultAnalysis}</b>
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <h5>Invoice Details</h5>
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Discount</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${parts}
+            </tbody>
+        </table>
+        <div class="row" style="margin-top: 8px;">
+            <div class="col col-6"></div>
+            <div class="col col-6">
+                <div class="row">
+                    <div class="col col-6">
+                        <p class="text-active">Service Charge</p>
+                    </div>
+                    <div class="col col-6">
+                        <p class="text-active">${ServiceCharge}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 8px;">
+            <div class="col col-6"></div>
+            <div class="col col-6">
+                <div class="row">
+                    <div class="col col-6">
+                        <p class="text-active">GST</p>
+                    </div>
+                    <div class="col col-6">
+                        <p class="text-active">${GSTPrice}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 8px;">
+            <div class="col col-6"></div>
+            <div class="col col-6">
+                <div class="row">
+                    <div class="col col-6">
+                        <h4>Grand Total</h4>
+                    </div>
+                    <div class="col col-6">
+                        <h4>${GrandTotal}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

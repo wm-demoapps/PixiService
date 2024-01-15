@@ -1,0 +1,7 @@
+{
+  "id" : "SupportDB",
+  "type" : "DataService",
+  "packageNames" : [ "com.wavemaker.servicetracker.supportdb" ],
+  "title" : "SupportDB",
+  "mockEnabled" : false
+}

@@ -1,0 +1,121 @@
+<wm-page pagetitle="Dashboard" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow18">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn28">
+                        <wm-label padding="unset" name="label16" caption="Dashboard" class="h2 font-bold"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn1">
+                        <wm-tile class="bg-default" name="tile3">
+                            <wm-layoutgrid height="100%" name="layoutgrid14">
+                                <wm-gridrow height="100%" name="gridrow26">
+                                    <wm-gridcolumn columnwidth="8" horizontalalign="left" name="gridcolumn31" class="col-xs-9">
+                                        <wm-label padding="unset" name="label1" class="h3 font-medium text-muted" caption="Job Requests"></wm-label>
+                                        <wm-label padding="unset" name="label2" class="h1 font-bold" caption="bind:Variables.svGetTotalJobRequests.firstRecord.count_id_" margin="12px unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" horizontalalign="right" name="gridcolumn32" class="col-xs-3">
+                                        <wm-picture resizemode="contain" name="picture1" picturesource="resources/images/imagelists/job-requests.svg" width="78px" height="78px"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-tile>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn19">
+                        <wm-tile class="bg-default" name="tile4">
+                            <wm-layoutgrid height="100%" name="layoutgrid9">
+                                <wm-gridrow height="100%" name="gridrow15">
+                                    <wm-gridcolumn columnwidth="8" horizontalalign="left" class="col-xs-9" name="gridcolumn26">
+                                        <wm-label padding="unset" class="h3 font-medium text-muted" caption="Outstanding RMAs" name="label18"></wm-label>
+                                        <wm-label padding="unset" class="h1 font-bold" name="label4" caption="bind:Variables.svGetTotalOutstandingRMAs.firstRecord.count_id_" margin="12px unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" horizontalalign="right" class="col-xs-3" name="gridcolumn27">
+                                        <wm-picture resizemode="contain" picturesource="resources/images/imagelists/rmas.svg" width="78px" height="78px" name="picture2"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-tile>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn20">
+                        <wm-tile class="bg-default" name="tile5">
+                            <wm-layoutgrid height="100%" name="layoutgrid10">
+                                <wm-gridrow height="100%" name="gridrow16">
+                                    <wm-gridcolumn columnwidth="8" horizontalalign="left" class="col-xs-9" name="gridcolumn28_1">
+                                        <wm-label padding="unset" class="h3 font-medium text-muted" caption="Total Closed RMAs" name="label20"></wm-label>
+                                        <wm-label padding="unset" class="h1 font-bold" name="label6" caption="bind:Variables.svGetTotalClosedRMAs.firstRecord.count_id_" margin="12px unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" horizontalalign="right" class="col-xs-3" name="gridcolumn29">
+                                        <wm-picture resizemode="contain" picturesource="resources/images/imagelists/closed-calls.svg" width="78px" height="78px" name="picture3"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-tile>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="7" name="gridcolumn5">
+                        <wm-panel iconclass="" autoclose="outsideClick" title="Customer Satisfaction Score" name="panel1">
+                            <wm-layoutgrid name="layoutgrid5">
+                                <wm-gridrow name="gridrow8">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn14">
+                                        <wm-chart type="Donut" title="" height="260px" iconclass="" name="chartCustomerSatisfaction" dataset="bind:Variables.svGetRatingsAggregation.dataSet" aggregation="count" xaxisdatakey="rating" yaxisdatakey="_count" nodatamessage="No Score Available" loadingdatamsg="Loading Score ..."
+                                            offsettop="0" showlegend="hide" showlabels="inside" labeltype="percent" legendtype="classic" customcolors="#233DAC, #F7DA75, #EECCC7, #67A1E5, #E1A2A6" ynumberformat="%"></wm-chart>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn15" padding="20px unset unset unset">
+                                        <wm-list listclass="list-group" itemclass="list-group-item no-border" template="true" template-name="Contact List" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list legend-list" datafield="All Fields" statehandler="URL" dataset="bind:Variables.svGetRatingsAggregation.dataSet"
+                                            navigation="None" name="list2">
+                                            <wm-listtemplate layout="inline" name="listtemplate2">
+                                                <wm-container class="media-left media-middle" name="container3">
+                                                    <wm-container name="container4_1" width="10px" height="10px" class="img-circle" conditionalstyle="bind:{'background-color':Variables.svGetRatingsAggregation.dataSet[$i].colorHexCode}" display="inline-block"></wm-container>
+                                                </wm-container>
+                                                <wm-container name="container5" class="media-body" padding="6px unset">
+                                                    <wm-label padding="unset" name="label11" caption="bind:Variables.svGetRatingsAggregation.dataSet[$i].rating"></wm-label>
+                                                </wm-container>
+                                                <wm-container name="container7" class="media-right">
+                                                    <wm-label padding="unset" caption="bind:Variables.svGetRatingsAggregation.dataSet[$i]._count" name="label12" whitespace="nowrap" class="text-muted font-medium"></wm-label>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="5" name="gridcolumn18">
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" template-name="Contact List" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list chain-list" datafield="All Fields" statehandler="none" name="executeGetDashboardMetricsList1"
+                            dataset="bind:Variables.svGetDashboardMetrics.dataSet" navigation="None" title="Progress Overview" height="297px" disableitem="true">
+                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                <wm-container name="container2" class="media-body" width="100%">
+                                    <wm-label padding="unset" name="label8" caption="bind:Widgets.executeGetDashboardMetricsList1.currentItem.label"></wm-label>
+                                </wm-container>
+                                <wm-container name="container4" class="media-right">
+                                    <wm-label padding="unset" caption="bind:Widgets.executeGetDashboardMetricsList1.currentItem.total" name="label9" whitespace="nowrap" class="font-medium text-muted"></wm-label>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-list>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10">
+                        <wm-table statehandler="none" name="RmaTable1" title="Customer Visit Scheduled Today" dataset="bind:Variables.dbCustomerVisitsToday.dataSet" navigation="Basic" navigationalign="right" showrecordcount="true" nodatamessage="No scheduled visits today." loadingdatamsg="Loading Customer Visits...">
+                            <wm-table-column binding="rmaNumber" caption="Rma Number" width="140px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false"></wm-table-column>
+                            <wm-table-column binding="engineerAppointment.engineer.name" caption="Engineer" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="engineerAppointment.timeSlot.name" caption="Time Slot" width="120px" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="serviceArea.areaName" caption="Area" width="80px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                            <wm-table-column binding="fullAddress" caption="Address" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false"></wm-table-column>
+                            <wm-table-column binding="jobRequest.productSerial.product.model" caption="Product" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="jobRequest.productSerial.customer.name" caption="Customer" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="serviceType.type" caption="Service Type" width="110px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                            <wm-table-column binding="serviceMode.name" caption="Payment Type" width="120px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

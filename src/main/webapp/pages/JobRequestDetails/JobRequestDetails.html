@@ -1,0 +1,268 @@
+<wm-page pagetitle="Job Request Details" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                        <wm-breadcrumb dataset="bind:Variables.stvBreadcrumbData.dataSet" class="attribute-based" name="breadcrumb1" itemid="id" itemlabel="label" itemicon="icon" itemlink="link" itemchildren="children"></wm-breadcrumb>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset" name="label1" class="h2 font-bold" caption="Job Request Details"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn38" horizontalalign="right">
+                        <wm-container name="container5" show="bind:!Variables.svGetJobRequest.dataSet.isRmaCreated">
+                            <wm-button class="btn-secondary btn-sm" caption="Create RMA" type="button" margin="unset" name="buttonCreateRMA" on-click="Widgets.dialogCreateRMA.open()" show="bind:!Variables.svGetJobRequest.dataSet.isRmaCreated" iconclass="wi wi-add"></wm-button>
+                            <wm-button class="btn-danger btn-sm" caption="Reject" type="button" margin="unset" name="buttonReject" show="bind:!Variables.svGetJobRequest.dataSet.isRmaCreated" on-click="Widgets.dialogRejectJobRequest.open()"></wm-button>
+                        </wm-container>
+                        <wm-container name="container6">
+                            <wm-label padding="unset" name="label47" class="h2" caption="RMA Created" show="bind:Variables.svGetJobRequest.dataSet.isRmaCreated"></wm-label>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow23">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn42">
+                        <wm-panel iconclass="" autoclose="outsideClick" title="" name="panelProductDetails">
+                            <wm-layoutgrid name="layoutgrid8">
+                                <wm-gridrow name="gridrow24">
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn43">
+                                        <wm-container name="container18_1">
+                                            <wm-container class="media-left" name="container19">
+                                                <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/job-requests-icon.svg" name="picture6"></wm-picture>
+                                            </wm-container>
+                                            <wm-container class="media-body media-middle" name="container20">
+                                                <wm-label padding="unset" class="h5 text-muted font-medium" caption="Job Request Number" name="label48"></wm-label>
+                                                <wm-label padding="unset" class="h4 font-semibold" caption="bind:Variables.svGetJobRequest.dataSet.jobRequestNo" margin="12px unset unset unset" name="label49"></wm-label>
+                                            </wm-container>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn49">
+                                        <wm-container name="container10_1">
+                                            <wm-container class="media-left" name="container11">
+                                                <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/customer-icon.svg" name="picture3"></wm-picture>
+                                            </wm-container>
+                                            <wm-container class="media-body media-middle" name="container12">
+                                                <wm-label padding="unset" class="h5 text-muted font-medium" caption="Customer Name" name="label50"></wm-label>
+                                                <wm-label padding="unset" class="h4 font-semibold" name="label7" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.name" margin="12px unset unset unset"></wm-label>
+                                            </wm-container>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn50">
+                                        <wm-container name="container13">
+                                            <wm-container class="media-left" name="container14">
+                                                <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/call-icon.svg" name="picture4"></wm-picture>
+                                            </wm-container>
+                                            <wm-container class="media-body media-middle" name="container15">
+                                                <wm-label padding="unset" class="h5 text-muted font-medium" caption="Primary Contact" name="label52"></wm-label>
+                                                <wm-label padding="unset" class="h4 font-semibold" name="label8" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.mobile" margin="12px unset unset unset"></wm-label>
+                                            </wm-container>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn44">
+                                        <wm-container name="container16">
+                                            <wm-container class="media-left" name="container17">
+                                                <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/description-icon.svg" name="picture5"></wm-picture>
+                                            </wm-container>
+                                            <wm-container class="media-body media-middle" name="container18">
+                                                <wm-label padding="unset" class="h5 text-muted font-medium" caption="Problem Description" name="label54"></wm-label>
+                                                <wm-label padding="unset" class="h4 font-semibold" name="label9" caption="bind:Variables.svGetJobRequest.dataSet.problemDescription" margin="12px unset unset unset"></wm-label>
+                                            </wm-container>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow25">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn46">
+                                        <wm-container name="container2" class="border top dashed" padding="24px unset unset unset" margin="24px unset unset unset">
+                                            <wm-layoutgrid name="layoutgrid3">
+                                                <wm-gridrow name="gridrow7">
+                                                    <wm-gridcolumn columnwidth="8" name="gridcolumn14">
+                                                        <wm-label padding="unset" name="label10" class="h3 font-bold" caption="Product Information" margin="unset unset 16px unset"></wm-label>
+                                                        <wm-layoutgrid name="layoutgrid4">
+                                                            <wm-gridrow name="gridrow9" padding="16px unset">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn17">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Serial Number" name="label11"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.serialNo" name="label17"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn18">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Warranty Status" name="label12"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="Not in Warranty" name="label18"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow10" padding="16px unset">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Model" name="label13"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.product.model" name="label19"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn20">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Warranty Start Date" name="label14"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.warrantyStartDate" name="label20"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow12" padding="16px unset">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn23">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Product Code" name="label15"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.product.code" name="label21"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn24">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Warranty End Date" name="label16"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.warrantyEndDate" name="label22"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn56" horizontalalign="center">
+                                                        <wm-container name="container18_2" backgroundcolor="rgba(206, 214, 223, 0.5)" class="img-rounded" height="280px">
+                                                            <wm-picture resizemode="contain" name="picture1" picturesource="bind:Variables.svGetJobRequest.dataSet.productSerial.product.image" width="100%" height="100%" class="blend-multiply"></wm-picture>
+                                                        </wm-container>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow26">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn48">
+                                        <wm-container name="container3" class="border top dashed" padding="24px unset unset unset" margin="24px unset unset unset">
+                                            <wm-layoutgrid name="layoutgrid5">
+                                                <wm-gridrow name="gridrow14">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn26">
+                                                        <wm-label padding="unset" class="h3 font-bold" caption="Customer Information" name="label23" margin="unset unset 16px unset"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow15" padding="16px unset">
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn28">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" caption="Name" name="label24"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.name" name="label33"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn29">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" caption="Mobile Number" name="label25"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.mobile" name="label34"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn34">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" caption="Country" name="label27"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.country" name="label36"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn35">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" caption="State" name="label29"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.state" name="label38"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow16" padding="16px unset">
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn30">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" caption="Email" name="label28"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.email" name="label37"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn31">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" caption="Customer Number" name="label31"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.customerNumber" name="label40"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn36">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" caption="City" name="label26"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.city" name="label35"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn37">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" caption="Postal Code" name="label30"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.customer.postalCode" name="label39"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn6"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow13">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn25"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Create RMA" iconclass="" name="dialogCreateRMA">
+        <wm-liveform errormessage="" title="" iconclass="" defaultmode="Edit" dataset="bind:Variables.dbCreateRMA.dataSet" captionalign="left" captionposition="floating" name="RmaLiveForm1" on-success="Widgets.dialogCreateRMA.close();Actions.nta_RMACreateSuccess.invoke();Variables.svPatchJobRequest.invoke()"
+            on-beforeservicecall="RmaLiveForm1Beforeservicecall($event, $operation, $data, options)">
+            <wm-layoutgrid columns="1" name="layoutgrid1_1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1_1">
+                        <wm-form-field name="problemDescription" displayname="Problem Description" show="true" generator="assigned" placeholder="Place your text" required="true" type="string" key="problemDescription" widget="textarea" maxchars="255"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2_1">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2_1">
+                        <wm-form-field name="serviceArea" displayname="Service Area" matchmode="startignorecase" show="true" is-related="true" generator="assigned" placeholder="" required="true" type="list" key="serviceArea" widget="select" displayexpression="areaName  + ' (' + range + ')'"
+                            match="word"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6_1">
+                        <wm-form-field name="serviceType" displayname="Service Type" matchmode="startignorecase" show="true" is-related="true" generator="assigned" placeholder="" required="true" type="list" key="serviceType" widget="select" displayexpression="type" match="word"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4_1">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4_1">
+                        <wm-form-field name="serviceMode" displayname="Service Mode" matchmode="startignorecase" show="true" is-related="true" generator="assigned" required="true" type="list" key="serviceMode" widget="switch" displayexpression="name"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1_1">
+                    <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                        <wm-form-field name="fullAddress" displayname="Full Address" show="true" generator="assigned" placeholder="Place your text" required="true" type="string" key="fullAddress" widget="textarea" maxchars="255"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1_1">
+                    <wm-gridcolumn name="gridcolumn1_1" columnwidth="12">
+                        <wm-form-field name="jobRequestId" displayname="Job Request Id" show="false" placeholder="Enter text" type="integer" key="jobRequestId" widget="text" inputtype="text" defaultvalue="bind:Variables.svGetJobRequest.dataSet.id"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                        <wm-form-field name="createdOn" displayname="Created On" show="false" generator="assigned" placeholder="Select date" required="false" type="date" key="createdOn" widget="date" readonly="false" defaultvalue="CURRENT_DATE"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" placeholder="Enter Number" required="true" type="integer" key="id" widget="number" inputtype="number" readonly="true" step="0"></wm-form-field>
+            <wm-form-action key="reset" display-name="Cancel" show="true" class="btn-default btn-sm" iconclass="" title="" action="RmaLiveForm1_resetAction($event)" disabled="false" widget-type="button" type="button" update-mode="true"></wm-form-action>
+            <wm-form-action key="save" display-name="Send for Approval" show="true" class="btn-secondary btn-sm" iconclass="" title="" disabled="false" widget-type="button" type="submit" update-mode="true"></wm-form-action>
+        </wm-liveform>
+        <wm-dialogactions name="dialogactions1" show="false">
+            <wm-button class="btn-primary" caption="Close" on-click="closeDialog()" name="button3"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Reject Job Request" iconclass="" name="dialogRejectJobRequest">
+        <wm-layoutgrid name="layoutgrid3_11">
+            <wm-gridrow name="gridrow8" padding="20px unset">
+                <wm-gridcolumn columnwidth="4" name="gridcolumn9_11" padding="unset 10px unset unset">
+                    <wm-label padding="unset" class="h6 text-muted" name="label9" caption="Serial Number"></wm-label>
+                    <wm-label padding="unset" class="h4 font-medium" name="label10" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.serialNo"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="4" name="gridcolumn10_11">
+                    <wm-label padding="unset" class="h6 text-muted" name="label2" caption="Model"></wm-label>
+                    <wm-label padding="unset" class="h4 font-medium" name="label6" caption="bind:Variables.svGetJobRequest.dataSet.productSerial.product.model"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="4" name="gridcolumn13_11" padding="unset unset unset 10px">
+                    <wm-label padding="unset" class="h6 text-muted" name="label3" caption="Warranty Status"></wm-label>
+                    <wm-label padding="unset" class="h4 font-medium" name="label7" caption="No warranty"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_11">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn11_11">
+                    <wm-composite name="composite1_11" captionposition="floating" padding="unset 10px" margin="unset -10px">
+                        <wm-label class="col-md-3 control-label" name="label8" caption="Reason for Rejection"></wm-label>
+                        <wm-container class="col-md-12" name="container1">
+                            <wm-textarea name="textarea1" placeholder="Write the reason for your rejection"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions2">
+            <wm-button class="btn-default btn-sm" caption="Close" on-click="closeDialog()" name="button4"></wm-button>
+            <wm-button class="btn-secondary btn-sm" caption="Reject" type="button" margin="unset" name="buttonRejectJR" on-click="Variables.svDeleteJobRequest.invoke()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+</wm-page>

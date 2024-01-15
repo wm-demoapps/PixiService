@@ -1,0 +1,154 @@
+<wm-page pagetitle="Outstanding RMAs" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset" name="label1" class="h2 font-bold" caption="Outstanding RMAs"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn5">
+                        <wm-tabs type="static" statehandler="none" name="tabs1">
+                            <wm-tabpane name="tabpane1" title="Pending For Approval" badgevalue="bind:Variables.dbPendingApprovalRMAs.dataSet.length" badgetype="primary">
+                                <wm-table statehandler="none" name="RmaTable1" title="" dataset="bind:Variables.dbPendingApprovalRMAs.dataSet" navigation="Basic" showrecordcount="true" navigationalign="right">
+                                    <wm-table-column binding="rmaNumber" caption="RMA Number" widget-type="anchor" width="140px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false">
+                                        <wm-anchor caption="bind:row.getProperty('rmaNumber')" hyperlink="" class="" conditionalclass="" conditionalstyle="" on-click="Actions.nav_goto_RMADetailsPendingApp.invoke()"></wm-anchor>
+                                    </wm-table-column>
+                                    <wm-table-column binding="jobRequest.warrantyStatus" caption="Warranty Status" widget-type="label" width="140px" edit-widget-type="text" related-entity-name="JobRequest" show="true" type="string" generator="assigned" readonly="true">
+                                        <wm-label caption="bind:row.getProperty('jobRequest.warrantyStatus')" class="" conditionalclass="bind:{'label-danger':row.getProperty('jobRequest.warrantyStatus') == 'No Warranty', 'label-success':row.getProperty('jobRequest.warrantyStatus') == 'Warranty'}"
+                                            conditionalstyle=""></wm-label>
+                                    </wm-table-column>
+                                    <wm-table-column binding="jobRequest.productSerial.product.model" caption="Product Name" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                    <wm-table-column binding="serviceArea.areaName" caption="Area" width="70px" edit-widget-type="text" related-entity-name="ServiceArea" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="serviceType.type" caption="Type" width="110px" edit-widget-type="text" related-entity-name="ServiceType" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="quotationAmount" caption="Amount" widget-type="label" edit-widget-type="number" show="true" type="integer" generator="assigned" readonly="false">
+                                        <wm-label caption="bind:row.getProperty('quotationAmount') | toCurrency: '₹'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                                    </wm-table-column>
+                                    <wm-table-column binding="serviceMode.name" caption="Mode" width="82px" edit-widget-type="text" related-entity-name="ServiceMode" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="jobRequest.productSerial.customer.name" caption="Customer Name" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                    <wm-table-column binding="jobRequest.serviceCenter" caption="Service Center" width="126px" edit-widget-type="text" related-entity-name="JobRequest" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="createdOn" caption="Created On" width="106px" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                </wm-table>
+                            </wm-tabpane>
+                            <wm-tabpane name="tabpane2" title="Approved RMAs" badgevalue="bind:Variables.dbApprovedRMAs.dataSet.length" badgetype="primary">
+                                <wm-table statehandler="none" name="RmaTable2" title="" dataset="bind:Variables.dbApprovedRMAs.dataSet" navigation="Basic" showrecordcount="true" navigationalign="right">
+                                    <wm-table-column binding="rmaNumber" caption="RMA Number" widget-type="anchor" width="140px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false">
+                                        <wm-anchor caption="bind:row.getProperty('rmaNumber')" hyperlink="" class="" conditionalclass="" conditionalstyle="" on-click="Actions.nav_goto_RMADetailsPendingApp.invoke()"></wm-anchor>
+                                    </wm-table-column>
+                                    <wm-table-column binding="jobRequest.warrantyStatus" caption="Warranty Status" widget-type="label" width="140px" edit-widget-type="text" related-entity-name="JobRequest" show="true" type="string" generator="assigned" readonly="true">
+                                        <wm-label caption="bind:row.getProperty('jobRequest.warrantyStatus')" class="" conditionalclass="bind:{'label-danger':row.getProperty('jobRequest.warrantyStatus') == 'No Warranty', 'label-success':row.getProperty('jobRequest.warrantyStatus') == 'Warranty'}"
+                                            conditionalstyle=""></wm-label>
+                                    </wm-table-column>
+                                    <wm-table-column binding="jobRequest.productSerial.product.model" caption="Product Name" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                    <wm-table-column binding="serviceArea.areaName" caption="Area" width="70px" edit-widget-type="text" related-entity-name="ServiceArea" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="serviceType.type" caption="Type" width="110px" edit-widget-type="text" related-entity-name="ServiceType" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="quotationAmount" caption="Amount" widget-type="label" edit-widget-type="number" show="true" type="integer" generator="assigned" readonly="false">
+                                        <wm-label caption="bind:row.getProperty('quotationAmount') | toCurrency: '₹'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                                    </wm-table-column>
+                                    <wm-table-column binding="serviceMode.name" caption="Mode" width="82px" edit-widget-type="text" related-entity-name="ServiceMode" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="jobRequest.productSerial.customer.name" caption="Customer Name" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                    <wm-table-column binding="jobRequest.serviceCenter" caption="Service Center" width="126px" edit-widget-type="text" related-entity-name="JobRequest" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="createdOn" caption="Created On" width="106px" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                    <wm-table-column binding="rowOperations" caption="Actions" width="84px" searchable="false" show="true" type="custom" readonly="true" sortable="false"></wm-table-column>
+                                    <wm-table-row-action key="customRow" display-name="Assign Engineer" show="true" class="btn-sm" iconclass="" title="Assign Engineer" action="RmaTable2_customRowAction($event, row)" disabled="false" widget-type="anchor"></wm-table-row-action>
+                                </wm-table>
+                            </wm-tabpane>
+                            <wm-tabpane name="tabpane3" title="Engineer Assigned" badgevalue="bind:Variables.dbEngineerAssignedRMAs.dataSet.length" badgetype="primary">
+                                <wm-table statehandler="none" name="RmaTable3" title="" dataset="bind:Variables.dbEngineerAssignedRMAs.dataSet" navigation="Classic" showrecordcount="true" navigationalign="right">
+                                    <wm-table-column binding="rmaNumber" caption="RMA Number" widget-type="anchor" width="140px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false">
+                                        <wm-anchor caption="bind:row.getProperty('rmaNumber')" hyperlink="" class="" conditionalclass="" conditionalstyle="" on-click="Actions.nav_goto_RMADetailsPendingApp.invoke()"></wm-anchor>
+                                    </wm-table-column>
+                                    <wm-table-column binding="jobRequest.warrantyStatus" caption="Warranty Status" widget-type="label" width="140px" edit-widget-type="text" related-entity-name="JobRequest" show="true" type="string" generator="assigned"
+                                        readonly="true">
+                                        <wm-label caption="bind:row.getProperty('jobRequest.warrantyStatus')" class="" conditionalclass="bind:{'label-danger':row.getProperty('jobRequest.warrantyStatus') == 'No Warranty', 'label-success':row.getProperty('jobRequest.warrantyStatus') == 'Warranty'}"
+                                            conditionalstyle=""></wm-label>
+                                    </wm-table-column>
+                                    <wm-table-column binding="jobRequest.productSerial.product.model" caption="Product Name" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                    <wm-table-column binding="serviceArea.areaName" caption="Area" width="70px" edit-widget-type="text" related-entity-name="ServiceArea" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="serviceType.type" caption="Type" width="110px" edit-widget-type="text" related-entity-name="ServiceType" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="jobRequest.productSerial.customer.name" caption="Customer Info" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                    <wm-table-column binding="engineerAppointment.engineer.name" caption="Engineer Info" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                    <wm-table-column binding="engineerAppointment.date" caption="Appointment Date" width="150px" edit-widget-type="text" related-entity-name="EngineerAppointment" searchable="false" show="true" type="string"
+                                        readonly="false"></wm-table-column>
+                                    <wm-table-column binding="paymentType.type" caption="Payment Type" width="120px" edit-widget-type="text" related-entity-name="PaymentType" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                                </wm-table>
+                            </wm-tabpane>
+                        </wm-tabs>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Assign Engineer" iconclass="" name="dialogAssignEngineer">
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-default btn-sm" caption="Close" on-click="closeDialog()" name="button1"></wm-button>
+            <wm-button class="btn-secondary btn-sm" caption="Assign" type="button" margin="unset" name="buttonAssignEngineer" disabled="bind:!Widgets.listAvailableSlots.selecteditem.id" on-click="Variables.svCreateEngineerAppointment.invoke()"></wm-button>
+        </wm-dialogactions>
+        <wm-layoutgrid name="layoutgrid3">
+            <wm-gridrow name="gridrow6">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn10" class="app-form">
+                    <wm-container name="container5" class="form-group app-composite-widget caption-top float-active">
+                        <wm-label padding="unset" name="label6" class="control-label" caption="Select Engineer"></wm-label>
+                        <wm-search name="searchEngineer" dataset="bind:Variables.dbGetEngineers.dataSet" searchkey="name" displaylabel="name" datafield="All Fields" matchmode="anywhereignorecase" type="search" searchon="typing"></wm-search>
+                        <wm-label padding="unset" name="label8" caption="Available list of engineers based on the service area and service type" fontsize="11" class="text-primary" margin="4px unset unset unset"></wm-label>
+                    </wm-container>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow7">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn12" height="350">
+                    <wm-container name="container1" show="bind:Widgets.searchEngineer.datavalue.id" class="panel border all app-container" bordercolor="rgba(206, 214, 223, 1)" overflow="hidden">
+                        <wm-layoutgrid name="layoutgrid4">
+                            <wm-gridrow name="gridrow8">
+                                <wm-gridcolumn columnwidth="7" name="gridcolumn14" class="app-grid-column border right">
+                                    <wm-calendar name="calendar1" controls="navigation" selectionmode="single" height="348px" calendartype="basic" margin="unset unset 0px unset"></wm-calendar>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="5" name="gridcolumn15" padding="15px 20px">
+                                    <wm-layoutgrid name="layoutgrid4_1">
+                                        <wm-gridrow name="gridrow7_1">
+                                            <wm-gridcolumn columnwidth="12" name="gridcolumn10_1">
+                                                <wm-label padding="unset" name="label3" class="h4 app-label font-medium" caption="bind:getFormattedDate(Widgets.calendar1.selecteddates.start)"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow8_1">
+                                            <wm-gridcolumn columnwidth="12" name="gridcolumn12_1">
+                                                <wm-container name="container6" height="290px" overflow="auto">
+                                                    <wm-container name="container4" show="bind:bookedSlots.length > 0" margin="16px unset unset unset" class="app-container panel no-border" backgroundcolor="rgba(255, 153, 31, 0.1)" horizontalalign="center" padding="12px 20px 20px 20px">
+                                                        <wm-list listclass="list-group" itemclass="list-group-item no-bg" template="true" template-name="Contact List" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list app-livelist app-panel booked no-bg" datafield="All Fields" statehandler="none" name="listBookedSlots"
+                                                            dataset="bind:bookedSlots" navigation="None" disableitem="true">
+                                                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                                                <wm-container name="container2" horizontalalign="center">
+                                                                    <wm-label padding="unset" name="label6_1" class="text-muted font-medium" caption="bind:Widgets.listBookedSlots.currentItem.name"></wm-label>
+                                                                </wm-container>
+                                                            </wm-listtemplate>
+                                                        </wm-list>
+                                                        <wm-label padding="unset" name="label4" class="font-semibold app-label btn btn-warning btn-sm pointer-events-none" caption="Booked Slots" height="25px" fontsize="12"></wm-label>
+                                                    </wm-container>
+                                                    <wm-container name="container10" margin="16px unset unset unset">
+                                                        <wm-label padding="unset" class="h6 app-label text-muted" name="label5" caption="Available Slots" margin="unset unset 6px unset"></wm-label>
+                                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" template-name="Contact List" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list app-livelist app-panel no-border slots" datafield="All Fields" statehandler="none" dataset="bind:availableSlots"
+                                                            navigation="None" name="listAvailableSlots">
+                                                            <wm-listtemplate layout="inline" name="listtemplate2">
+                                                                <wm-container name="container3" horizontalalign="center">
+                                                                    <wm-label padding="unset" class="text-primary font-medium" caption="bind:Widgets.listAvailableSlots.currentItem.name" name="label7"></wm-label>
+                                                                </wm-container>
+                                                            </wm-listtemplate>
+                                                        </wm-list>
+                                                    </wm-container>
+                                                </wm-container>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                    </wm-container>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+</wm-page>

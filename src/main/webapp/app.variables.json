@@ -1,0 +1,362 @@
+{
+  "appNotification" : {
+    "_id" : "wm-appErrorHandler-wm.NotificationVariable-1454664620943",
+    "name" : "appNotification",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
+  "goToPage_ClosedRMAs" : {
+    "_id" : "wm-goToPage_ClosedRMAs-wm.NavigationVariable-1698427672040",
+    "name" : "goToPage_ClosedRMAs",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ClosedRMAs",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Dashboard" : {
+    "_id" : "wm-goToPage_Dashboard-wm.NavigationVariable-1698694433083",
+    "name" : "goToPage_Dashboard",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "Dashboard",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_JobRequestDetails" : {
+    "_id" : "wm-goToPage_JobRequestDetails-wm.NavigationVariable-1698387049069",
+    "name" : "goToPage_JobRequestDetails",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "JobRequestDetails",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_JobRequests" : {
+    "_id" : "wm-goToPage_JobRequests-wm.NavigationVariable-1698377915901",
+    "name" : "goToPage_JobRequests",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "JobRequests",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Main" : {
+    "_id" : "wm-wm.NavigationVariable1389180517517",
+    "name" : "goToPage_Main",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "operation" : "gotoPage",
+    "pageName" : "Main"
+  },
+  "goToPage_MyRMAs" : {
+    "_id" : "wm-goToPage_MyRMAs-wm.NavigationVariable-1698632474563",
+    "name" : "goToPage_MyRMAs",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "MyRMAs",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_OutstandingRMAs" : {
+    "_id" : "wm-goToPage_OutstandingRMAs-wm.NavigationVariable-1698403237053",
+    "name" : "goToPage_OutstandingRMAs",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "OutstandingRMAs",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_PendingRMAs" : {
+    "_id" : "wm-goToPage_PendingRMAs-wm.NavigationVariable-1698633399332",
+    "name" : "goToPage_PendingRMAs",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "PendingRMAs",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_RMADetails" : {
+    "_id" : "wm-goToPage_RMADetails-wm.NavigationVariable-1698407651602",
+    "name" : "goToPage_RMADetails",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "RMADetails",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_RMAEngineerDetails" : {
+    "_id" : "wm-goToPage_RMAEngineerDetails-wm.NavigationVariable-1698407663807",
+    "name" : "goToPage_RMAEngineerDetails",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "RMAEngineerDetails",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "loggedInUser" : {
+    "_id" : "wm-loggedInUser-wm.Variable-1698642152540",
+    "name" : "loggedInUser",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "",
+      "id" : "",
+      "tenantId" : "",
+      "isAuthenticated" : false,
+      "isSecurityEnabled" : true,
+      "roles" : [ ]
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "loginAction" : {
+    "_id" : "wm-loginAction-wm.LoginVariable-1698642152540",
+    "name" : "loginAction",
+    "owner" : "App",
+    "category" : "wm.LoginVariable",
+    "dataBinding" : [ ],
+    "dataSet" : { },
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "useDefaultSuccessHandler" : true
+  },
+  "logoutAction" : {
+    "_id" : "wm-logoutAction-wm.LogoutVariable-1698642152540",
+    "name" : "logoutAction",
+    "owner" : "App",
+    "category" : "wm.LogoutVariable",
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "redirectTo" : "Login",
+    "useDefaultSuccessHandler" : true
+  },
+  "nta_jobRequestRejected" : {
+    "_id" : "wm-nta_jobRequestRejected-wm.NotificationVariable-1698402867620",
+    "name" : "nta_jobRequestRejected",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Job Request rejected",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "3000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "nta_RMAClosedSuccess" : {
+    "_id" : "wm-nta_RMAClosedSuccess-wm.NotificationVariable-1698428249401",
+    "name" : "nta_RMAClosedSuccess",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "RMA Closed Successfully",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "3000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Success",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "nta_RMACreateSuccess" : {
+    "_id" : "wm-nta_RMACreateSuccess-wm.NotificationVariable-1698383346404",
+    "name" : "nta_RMACreateSuccess",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "RMA sent for approval",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "3000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Success",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "stvBreadcrumbData" : {
+    "_id" : "wm-stvBreadcrumbData-wm.Variable-1698720909417",
+    "name" : "stvBreadcrumbData",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "Dashboard",
+      "icon" : "wm-sl-r sl-home",
+      "link" : "#/Dashboard",
+      "id" : "Dashboard",
+      "children" : [ {
+        "label" : "Job Requests",
+        "id" : "JobRequests",
+        "icon" : "",
+        "link" : "#/JobRequests",
+        "children" : [ {
+          "label" : "Job Request Details",
+          "icon" : "",
+          "link" : "#/JobRequestDetails",
+          "id" : "JobRequestDetails"
+        } ]
+      }, {
+        "label" : "Outstanding RMAs",
+        "id" : "OutstandingRMAS",
+        "icon" : "",
+        "link" : "#/OutstandingRMAs",
+        "children" : [ {
+          "label" : "RMA Details",
+          "icon" : "",
+          "link" : "#/RMADetails",
+          "id" : "RMADetails"
+        }, {
+          "label" : "RMA Details",
+          "icon" : "",
+          "link" : "#/RMAEngineerDetails",
+          "id" : "RMAEngineerDetails"
+        } ]
+      }, {
+        "label" : "Closed Calls",
+        "icon" : "",
+        "link" : "#/ClosedRMAs",
+        "id" : "ClosedRMAs",
+        "children" : [ {
+          "label" : "Closed RMA Details",
+          "icon" : "",
+          "link" : "#/RMAEngineerDetails",
+          "id" : "RMAEngineerDetails"
+        } ]
+      }, {
+        "label" : "Pending RMAs",
+        "icon" : "",
+        "link" : "#/PendingRMAs",
+        "id" : "PendingRMAs"
+      }, {
+        "label" : "My RMAs",
+        "icon" : "",
+        "link" : "#/MyRMAs",
+        "id" : "MyRMAs"
+      } ]
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "supportedLocale" : {
+    "_id" : "wm-wm.Variable1402640443182",
+    "name" : "supportedLocale",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataSet" : {
+      "en" : "English"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "svLoggedinUser" : {
+    "_id" : "wm-svLoggedinUser-wm.ServiceVariable-1698642404489",
+    "name" : "svLoggedinUser",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "id",
+      "value" : "bind:Variables.loggedInUser.dataSet.id",
+      "type" : "integer"
+    } ],
+    "type" : "com.wavemaker.servicetracker.supportdb.UserLogin",
+    "service" : "SupportDB",
+    "operation" : "getUserLogin",
+    "operationId" : "UserLoginController_getUserLogin",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "UserLogin"
+  }
+}

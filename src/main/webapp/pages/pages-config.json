@@ -1,0 +1,85 @@
+[ {
+  "name" : "ClosedRMAs",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Common",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Dashboard",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "JobRequestDetails",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "jrId",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "JobRequests",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Login",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "persona",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "MyRMAs",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "OutstandingRMAs",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "PendingRMAs",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "RMADetails",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "rmaId",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "RMAEngineerDetails",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "rmaId",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "footer",
+  "type" : "FOOTER",
+  "params" : [ ]
+}, {
+  "name" : "header",
+  "type" : "HEADER",
+  "params" : [ ]
+}, {
+  "name" : "leftnav",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+}, {
+  "name" : "partialUserOptions",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "rightnav",
+  "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "topnav",
+  "type" : "TOPNAV",
+  "params" : [ ]
+} ]

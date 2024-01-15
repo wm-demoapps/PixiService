@@ -1,0 +1,25 @@
+<wm-partial name="header" type="header">
+    <wm-layoutgrid name="headerlayout">
+        <wm-gridrow name="headerrow">
+            <wm-gridcolumn name="headerleft" verticalalign="middle" columnwidth="2" class="header-left">
+                <wm-picture picturesource="resources/images/logos/logo-on-bg.svg" name="AppLogo"></wm-picture>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="5" name="gridcolumn3">
+                <wm-container name="container4" padding="unset unset unset 22px">
+                    <wm-label padding="unset" name="label5" caption="Pixi Service Centre" class="h6 inline"></wm-label>
+                    <wm-label padding="unset 8px" caption="PIN Code : 302021" class="h6 inline" name="label8" margin="unset 8px" bordercolor="rgba(104, 119, 138, 0.2)" borderstyle="solid" borderwidth="0px 1px"></wm-label>
+                    <wm-label padding="unset" caption="Telephone : 0133432545" class="h6 inline" name="label9"></wm-label>
+                </wm-container>
+            </wm-gridcolumn>
+            <wm-gridcolumn name="headerright" horizontalalign="right" verticalalign="middle" columnwidth="5" paddingunit="em" class="header-right">
+                <wm-container name="container2" display="inline-flex" class="flex-v-center">
+                    <wm-container name="container1" display="inline-block">
+                        <wm-label padding="unset" name="label1" class="h4 font-medium" caption="bind:Variables.svLoggedinUser.dataSet.name"></wm-label>
+                        <wm-label padding="unset" name="label2" class="text-muted" caption="bind:Variables.svLoggedinUser.dataSet.userRole.role"></wm-label>
+                    </wm-container>
+                    <wm-popover popoverwidth="auto" popoverheight="auto" margin="unset 22px unset 12px" name="popover1" caption="" content="partialUserOptions" iconurl="resources/images/imagelists/user-circle.svg" popoverarrow="true" autoclose="always"></wm-popover>
+                </wm-container>
+            </wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+</wm-partial>

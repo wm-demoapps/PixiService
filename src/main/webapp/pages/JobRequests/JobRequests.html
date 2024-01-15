@@ -1,0 +1,116 @@
+<wm-page pagetitle="Job Requests" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow9_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn12">
+                        <wm-label padding="unset" name="label8_1" caption="Job Requests" class="h2 font-bold"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                        <wm-table statehandler="none" name="JobRequestTable1" title="" dataset="bind:Variables.SupportDBJobRequestData.dataSet" navigation="Basic" navigationalign="right" showrecordcount="true">
+                            <wm-table-column binding="jobRequestNo" caption="JR Number" widget-type="anchor" width="110px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false">
+                                <wm-anchor caption="bind:row.getProperty('jobRequestNo')" hyperlink="" class="" conditionalclass="" conditionalstyle="" on-click="Actions.nav_goto_jobReqDetails.invoke()"></wm-anchor>
+                            </wm-table-column>
+                            <wm-table-column binding="warrantyStatus" caption="Warranty Status" widget-type="label" width="140px" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false">
+                                <wm-label caption="bind:row.getProperty('warrantyStatus')" class="" conditionalclass="bind:{'label-danger':row.getProperty('warrantyStatus') === 'No Warranty', 'label-success':row.getProperty('warrantyStatus') === 'Warranty'}"
+                                    conditionalstyle=""></wm-label>
+                            </wm-table-column>
+                            <wm-table-column binding="productSerial.product.model" caption="Product Name" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="problemDescription" caption="Problem Description" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false"></wm-table-column>
+                            <wm-table-column binding="productSerial.customer.name" caption="Customer Info" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="serviceCenter" caption="Service Center" width="150px" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="createdOn" caption="Created On" width="110px" edit-widget-type="date" show="true" type="date" generator="assigned" readonly="false"></wm-table-column>
+                            <wm-table-column binding="rowOperations" caption="Actions" width="160px" searchable="false" show="true" type="custom" readonly="true" sortable="false"></wm-table-column>
+                            <wm-table-row-action key="customRow" display-name="Create RMA" show="true" iconclass="" title="Create RMA" action="JobRequestTable1_customRowAction($event, row)" disabled="false" widget-type="anchor"></wm-table-row-action>
+                            <wm-table-row-action key="customRow1" display-name="Reject" show="true" class="text-danger" iconclass="" title="Reject" action="JobRequestTable1_customRow1Action($event, row)" disabled="false" widget-type="anchor"></wm-table-row-action>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Create RMA" iconclass="" name="dialogCreateRMA" closable="true">
+        <wm-liveform errormessage="" title="" iconclass="" defaultmode="Edit" dataset="bind:Variables.dbCreateRMA.dataSet" captionalign="left" captionposition="floating" name="RmaLiveForm1" on-success="Widgets.dialogCreateRMA.close();Actions.nta_RMACreateSuccess.invoke();Variables.svPatchJobRequest.invoke()"
+            on-beforeservicecall="RmaLiveForm1Beforeservicecall($event, $operation, $data, options)">
+            <wm-layoutgrid columns="1" name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                        <wm-form-field name="problemDescription" displayname="Problem Description" show="true" generator="assigned" placeholder="" required="true" type="string" key="problemDescription" widget="textarea" maxchars="255"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2">
+                        <wm-form-field name="serviceArea" displayname="Service Area" matchmode="startignorecase" show="true" is-related="true" generator="assigned" placeholder="" required="true" type="list" key="serviceArea" widget="select" displayexpression="areaName  + ' (' + range + ')'"
+                            match="word"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6">
+                        <wm-form-field name="serviceType" displayname="Service Type" matchmode="startignorecase" show="true" is-related="true" generator="assigned" placeholder="" required="true" type="list" key="serviceType" widget="select" displayexpression="type" match="word"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4">
+                        <wm-form-field name="serviceMode" displayname="Service Mode" matchmode="startignorecase" show="true" is-related="true" generator="assigned" required="true" type="list" key="serviceMode" widget="switch" displayexpression="name"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                        <wm-form-field name="fullAddress" displayname="Full Address" show="true" generator="assigned" placeholder="" required="true" type="string" key="fullAddress" widget="textarea" maxchars="255"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                        <wm-form-field name="jobRequestId" displayname="Job Request Id" show="false" placeholder="Enter text" type="integer" key="jobRequestId" widget="text" inputtype="text" defaultvalue="bind:Widgets.JobRequestTable1.selecteditem.id"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                        <wm-form-field name="createdOn" displayname="Created On" show="false" generator="assigned" placeholder="Select date" required="false" type="date" key="createdOn" widget="date" readonly="false" defaultvalue="CURRENT_DATE"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" placeholder="Enter Number" required="true" type="integer" key="id" widget="number" inputtype="number" readonly="true" step="0"></wm-form-field>
+            <wm-form-action key="reset" display-name="Cancel" show="true" class="btn-default btn-sm" iconclass="" title="Cancel" action="RmaLiveForm1_resetAction($event)" disabled="false" widget-type="button" type="button" update-mode="true"></wm-form-action>
+            <wm-form-action key="save" display-name="Send for Approval" show="true" class="btn-secondary btn-sm" iconclass="" title="Send for Approval" disabled="false" widget-type="button" type="submit" update-mode="true"></wm-form-action>
+        </wm-liveform>
+        <wm-dialogactions name="dialogactions1" show="false">
+            <wm-button class="btn-primary" caption="Close" on-click="closeDialog()" name="button1"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Reject Job Request" iconclass="" name="dialogRejectJobRequest">
+        <wm-dialogactions name="dialogactions2">
+            <wm-button class="btn-default btn-sm" caption="Cancel" on-click="closeDialog()" name="button2"></wm-button>
+            <wm-button class="btn-secondary btn-sm" caption="Reject" type="button" margin="unset" name="buttonRejectJR" on-click="Variables.svDeleteJobRequest.invoke()"></wm-button>
+        </wm-dialogactions>
+        <wm-layoutgrid name="layoutgrid3">
+            <wm-gridrow name="gridrow8" padding="20px unset">
+                <wm-gridcolumn columnwidth="4" name="gridcolumn9" padding="unset 12px unset unset">
+                    <wm-label padding="unset" class="h6 text-muted" name="label9" caption="Serial Number"></wm-label>
+                    <wm-label padding="unset" class="h4 font-medium" name="label10" caption="bind:Widgets.JobRequestTable1.selecteditem.jobRequestNo"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="4" name="gridcolumn10">
+                    <wm-label padding="unset" class="h6 text-muted" name="label2" caption="Model"></wm-label>
+                    <wm-label padding="unset" class="h4 font-medium" name="label6" caption="bind:Widgets.JobRequestTable1.selecteditem.productSerial.product.model"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="4" name="gridcolumn13" padding="unset unset unset 12px">
+                    <wm-label padding="unset" class="h6 text-muted" name="label3" caption="Warranty Status"></wm-label>
+                    <wm-label padding="unset" class="h4 font-medium" name="label7" caption="bind:Widgets.JobRequestTable1.selecteditem.warrantyStatus"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn11">
+                    <wm-composite name="composite1" captionposition="floating" padding="unset 10px" margin="unset -10px">
+                        <wm-label class="col-md-3 control-label" name="label8" caption="Reason for Rejection"></wm-label>
+                        <wm-container class="col-md-12" name="container1">
+                            <wm-textarea name="textarea1" placeholder="Write the reason for your rejection"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+</wm-page>

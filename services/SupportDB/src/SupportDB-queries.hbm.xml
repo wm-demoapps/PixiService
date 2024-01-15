@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="getRatingsAggregation">
+        <![CDATA[
+        SELECT r.rating, COUNT(cs.rating_id) AS count, r.color_hex_code
+FROM rating r
+LEFT JOIN customer_satisfaction cs
+ON r.id = cs.rating_id
+GROUP BY r.rating
+ORDER BY r.score
+        ]]>
+    </sql-query>
+
+    <sql-query name="getRatingsAggregation__count">
+        <![CDATA[
+        select count(*) from (SELECT r.rating, COUNT(cs.rating_id) AS count, r.color_hex_code
+FROM rating r
+LEFT JOIN customer_satisfaction cs
+ON r.id = cs.rating_id
+GROUP BY r.rating
+ORDER BY r.score) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getTotalJobRequests">
+        <![CDATA[
+        select count(id) from job_request where is_rma_created IS NULL OR is_rma_created = 0
+        ]]>
+    </sql-query>
+
+    <sql-query name="getTotalJobRequests__count">
+        <![CDATA[
+        select count(*) from (select count(id) from job_request where is_rma_created IS NULL OR is_rma_created = 0) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getTotalOutstandingRMAs">
+        <![CDATA[
+        select count(id) from rma where is_closed IS NULL OR is_closed = 0
+        ]]>
+    </sql-query>
+
+    <sql-query name="getTotalOutstandingRMAs__count">
+        <![CDATA[
+        select count(*) from (select count(id) from rma where is_closed IS NULL OR is_closed = 0) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getDashboardMetrics">
+        <![CDATA[
+        select "JR" as label, count(id) as total from job_request where is_rma_created IS NULL OR is_rma_created = 0
+union
+select "RMA Created" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and (is_approved = 0 or is_approved IS NULL)
+union
+select "RMA Accepted" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and is_approved = 1 and engineer_appointment_id IS NULL
+union
+select "Engineer Assigned" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and is_approved = 1 and engineer_appointment_id IS NOT NULL
+union
+select "Closed RMAs" as label, count(id) as total from rma where is_closed = 1 and is_approved = 1 and engineer_appointment_id IS NOT NULL
+        ]]>
+    </sql-query>
+
+    <sql-query name="getDashboardMetrics__count">
+        <![CDATA[
+        select count(*) from (select "JR" as label, count(id) as total from job_request where is_rma_created IS NULL OR is_rma_created = 0
+union
+select "RMA Created" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and (is_approved = 0 or is_approved IS NULL)
+union
+select "RMA Accepted" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and is_approved = 1 and engineer_appointment_id IS NULL
+union
+select "Engineer Assigned" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and is_approved = 1 and engineer_appointment_id IS NOT NULL
+union
+select "Closed RMAs" as label, count(id) as total from rma where is_closed = 1 and is_approved = 1 and engineer_appointment_id IS NOT NULL) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getTotalClosedRMAs">
+        <![CDATA[
+        select count(id) from rma where is_closed = 1
+        ]]>
+    </sql-query>
+
+    <sql-query name="getTotalClosedRMAs__count">
+        <![CDATA[
+        select count(*) from (select count(id) from rma where is_closed = 1) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>

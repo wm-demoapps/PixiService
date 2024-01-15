@@ -1,0 +1,8 @@
+{
+  "id" : "InvoiceService",
+  "type" : "JavaService",
+  "packageNames" : [ "com.wavemaker.servicetracker.invoiceservice" ],
+  "serviceClassNames" : [ "com.wavemaker.servicetracker.invoiceservice.InvoiceService" ],
+  "title" : "InvoiceService",
+  "mockEnabled" : false
+}

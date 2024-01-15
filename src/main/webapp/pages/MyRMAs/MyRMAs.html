@@ -1,0 +1,33 @@
+<wm-page pagetitle="My RMAs" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                        <wm-label padding="unset" name="label1" class="h2 font-bold" caption="My RMAs"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                        <wm-table statehandler="none" name="RmaTable1" title="" dataset="bind:Variables.dbRMAsOfEngineer.dataSet" navigation="Basic" showrecordcount="true" navigationalign="right">
+                            <wm-table-column binding="rmaNumber" caption="Rma Number" widget-type="anchor" width="140px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false">
+                                <wm-anchor caption="bind:row.getProperty('rmaNumber')" hyperlink="" class="" conditionalclass="" conditionalstyle="" on-click="Actions.nav_goto_RMADetailsEng.invoke()"></wm-anchor>
+                            </wm-table-column>
+                            <wm-table-column binding="problemDescription" caption="Problem Description" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false"></wm-table-column>
+                            <wm-table-column binding="jobRequest.productSerial.product.model" caption="Product" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="jobRequest.productSerial.customer.name" caption="Customer Info" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="engineerAppointment.date" caption="Date" width="120px" edit-widget-type="text" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="timeSlot.name" caption="TimeSlot" width="150px" edit-widget-type="text" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="quotationAmount" caption="Quotation Amount" widget-type="label" edit-widget-type="number" show="true" type="integer" generator="assigned" readonly="false">
+                                <wm-label caption="bind:row.getProperty('quotationAmount') | toCurrency: '₹'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                            </wm-table-column>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

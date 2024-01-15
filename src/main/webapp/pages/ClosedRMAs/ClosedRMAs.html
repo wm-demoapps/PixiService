@@ -1,0 +1,34 @@
+<wm-page pagetitle="Closed RMAs" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                        <wm-label padding="unset" name="label1" class="h2 font-bold" caption="Closed RMAs"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn5">
+                        <wm-table statehandler="none" name="RmaTable1" title="" dataset="bind:Variables.dbClosedRMAs.dataSet" navigation="Basic" navigationalign="right" showrecordcount="true">
+                            <wm-table-column binding="rmaNumber" caption="Rma Number" widget-type="anchor" width="140px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="false">
+                                <wm-anchor caption="bind:row.getProperty('rmaNumber')" hyperlink="" class="" conditionalclass="" conditionalstyle="" on-click="Actions.nav_goto_RMADetailsEngAssigned.invoke()"></wm-anchor>
+                            </wm-table-column>
+                            <wm-table-column binding="jobRequest.warrantyStatus" caption="Warranty Status" widget-type="label" width="150px" edit-widget-type="text" related-entity-name="JobRequest" show="true" type="string" generator="assigned" readonly="true">
+                                <wm-label caption="bind:row.getProperty('jobRequest.warrantyStatus')" class="" conditionalclass="bind:{'label-danger':row.getProperty('jobRequest.warrantyStatus') == 'No Warranty', 'label-success':row.getProperty('jobRequest.warrantyStatus') == 'Warranty'}"
+                                    conditionalstyle=""></wm-label>
+                            </wm-table-column>
+                            <wm-table-column binding="jobRequest.productSerial.product.model" caption="Product" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="serviceArea.areaName" caption="Area" edit-widget-type="text" related-entity-name="ServiceArea" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                            <wm-table-column binding="serviceType.type" caption="Service Type" width="110px" edit-widget-type="text" related-entity-name="ServiceType" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                            <wm-table-column binding="jobRequest.productSerial.customer.name" caption="Customer Info" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                            <wm-table-column binding="engineerAppointment.engineer.name" caption="Engineer Info" edit-widget-type="text" searchable="false" show="true" type="string" readonly="false"></wm-table-column>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

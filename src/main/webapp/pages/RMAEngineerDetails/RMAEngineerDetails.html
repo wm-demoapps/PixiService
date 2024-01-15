@@ -1,0 +1,487 @@
+<wm-page pagetitle="RMA Details" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1" show="bind:Variables.svGetRMA.dataSet.isApproved">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                        <wm-breadcrumb dataset="bind:Variables.stvBreadcrumbData.dataSet" class="attribute-based" name="breadcrumb1" itemid="id" itemlabel="label" itemicon="icon" itemlink="link" itemchildren="children"></wm-breadcrumb>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset" name="label1" class="h2 font-bold" caption="RMA Details"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn43_1" horizontalalign="right">
+                        <wm-container name="container9" horizontalalign="right" show="bind:!Variables.svGetRMA.dataSet.isClosed">
+                            <wm-button class="btn-primary outline btn-sm btn app-button" caption="Reschedule Visit" type="button" margin="unset" name="button6" on-click="Widgets.dialogRescheduleVisit.open()"></wm-button>
+                            <wm-button class="btn-secondary btn-sm" caption="Close Ticket" type="button" margin="unset" name="button7" on-click="Widgets.dialogCloseTicket.open()" disabled="bind:!Widgets.RepairActivityLiveForm1.valid"></wm-button>
+                        </wm-container>
+                        <wm-container name="container14" show="bind:Variables.svGetRMA.dataSet.isClosed">
+                            <wm-label name="label28_1" class="label-danger" caption="RMA Closed" show="bind:Variables.svGetRMA.dataSet.isClosed"></wm-label>
+                            <wm-button class="btn-primary outline btn-sm btn app-button" caption="Download Invoice" type="button" margin="unset unset unset 16px" name="buttonDownloadInvoice" on-click="Variables.svGenerateInvoice.invoke()"></wm-button>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow43">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn72">
+                        <wm-panel iconclass="" autoclose="outsideClick" title="" name="panelRMADetails">
+                            <wm-layoutgrid name="layoutgrid15" columns="1">
+                                <wm-gridrow name="gridrow48">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn83">
+                                        <wm-layoutgrid name="layoutgrid14">
+                                            <wm-gridrow name="gridrow44">
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn73">
+                                                    <wm-container name="container18_1">
+                                                        <wm-container class="media-left" name="container19">
+                                                            <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/job-requests-icon.svg" name="picture6"></wm-picture>
+                                                        </wm-container>
+                                                        <wm-container class="media-body media-middle" name="container20">
+                                                            <wm-label padding="unset" class="h5 text-muted font-medium" caption="RMA Number" name="label48"></wm-label>
+                                                            <wm-label padding="unset" class="h4 font-semibold" caption="bind:Variables.svGetRMA.dataSet.rmaNumber" margin="12px unset unset unset" name="label49"></wm-label>
+                                                        </wm-container>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn77">
+                                                    <wm-container name="container19_1">
+                                                        <wm-container class="media-left" name="container20_1">
+                                                            <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/customer-icon.svg" name="picture2"></wm-picture>
+                                                        </wm-container>
+                                                        <wm-container class="media-body media-middle" name="container21">
+                                                            <wm-label padding="unset" class="h5 text-muted font-medium" caption="Customer Name" name="label60"></wm-label>
+                                                            <wm-label padding="unset" class="h4 font-semibold" caption="bind:Variables.svGetRMA.dataSet.jobRequest.productSerial.customer.name" margin="12px unset unset unset" name="label61"></wm-label>
+                                                        </wm-container>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn78">
+                                                    <wm-container name="container22">
+                                                        <wm-container class="media-left" name="container23">
+                                                            <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/description-icon.svg" name="picture3"></wm-picture>
+                                                        </wm-container>
+                                                        <wm-container class="media-body media-middle" name="container24">
+                                                            <wm-label padding="unset" class="h5 text-muted font-medium" caption="Problem Description" name="label62"></wm-label>
+                                                            <wm-label padding="unset" class="h4 font-semibold" caption="bind:Variables.svGetRMA.dataSet.problemDescription" margin="12px unset unset unset" name="label63"></wm-label>
+                                                        </wm-container>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn74">
+                                                    <wm-container name="container25">
+                                                        <wm-container class="media-left" name="container26">
+                                                            <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/call-icon.svg" name="picture4"></wm-picture>
+                                                        </wm-container>
+                                                        <wm-container class="media-body media-middle" name="container27">
+                                                            <wm-label padding="unset" class="h5 text-muted font-medium" caption="Payment Type" name="label64"></wm-label>
+                                                            <wm-label padding="unset" class="h4 font-semibold" caption="bind:Variables.svGetRMA.dataSet.paymentType.type + &quot; (&quot; + (Variables.svGetRMA.dataSet.quotationAmount | toCurrency: '₹') + &quot;)&quot;" margin="12px unset unset unset" name="label65"></wm-label>
+                                                        </wm-container>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow49">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn84">
+                                        <wm-container name="container2" class="border top dashed" margin="24px unset unset unset" padding="24px unset unset unset">
+                                            <wm-layoutgrid name="layoutgrid3">
+                                                <wm-gridrow name="gridrow6">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn9_1">
+                                                        <wm-label padding="unset" name="label10" class="h3 font-bold" caption="Engineer Information"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow7" padding="16px unset unset unset">
+                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn11">
+                                                        <wm-label padding="unset" name="label11" class="h5 text-muted font-medium" caption="Assigned To"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" name="label14" caption="bind:Variables.svGetRMA.dataSet.engineerAppointment.engineer.name"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn12">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" name="label12" caption="Mobile Number"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" name="label15" caption="bind:Variables.svGetRMA.dataSet.engineerAppointment.engineer.mobileNumber"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn13">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium" name="label13" caption="Repair Scheduled Date &amp; Time"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium" name="label16" caption="bind:Variables.svGetRMA.dataSet.engineerAppointment.date + '   ' + Variables.svGetRMA.dataSet.engineerAppointment.timeSlot.name"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow50">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn85">
+                                        <wm-container name="container3" show="bind:!Variables.svGetRMA.dataSet.isClosed" padding="24px unset unset unset" margin="24px unset unset unset" class="border top dashed">
+                                            <wm-layoutgrid name="layoutgrid4">
+                                                <wm-gridrow name="gridrow9">
+                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn16" horizontalalign="left">
+                                                        <wm-label padding="unset" name="label17" class="h3 font-bold" caption="Repair Activity"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn62" horizontalalign="right"></wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow10">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn17">
+                                                        <wm-liveform errormessage="" title="" iconclass="" defaultmode="Edit" dataset="bind:Variables.dbRepairActivity.dataSet" captionalign="left" captionposition="top" name="RepairActivityLiveForm1" class="no-border" margin="16px -24px -24px -24px">
+                                                            <wm-layoutgrid columns="3" name="layoutgrid5">
+                                                                <wm-gridrow name="gridrow11">
+                                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn17_1">
+                                                                        <wm-container name="container42" class="input-group">
+                                                                            <wm-form-field name="date" displayname="Arrival Date" show="true" generator="assigned" placeholder="Select date" required="true" type="date" key="date" widget="date"></wm-form-field>
+                                                                            <wm-anchor margin="unset 0.5em" name="anchorCheckIn" caption="Check In" on-click="anchorCheckInClick($event, widget)" class="input-group-addon"></wm-anchor>
+                                                                        </wm-container>
+                                                                    </wm-gridcolumn>
+                                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn18">
+                                                                        <wm-form-field name="startTime" displayname="Start Time" show="true" generator="assigned" placeholder="Select time" required="true" type="time" key="startTime" widget="time"></wm-form-field>
+                                                                    </wm-gridcolumn>
+                                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn19">
+                                                                        <wm-container name="container28" class="input-group">
+                                                                            <wm-form-field name="endTime" displayname="End Time" show="true" generator="assigned" placeholder="Select time" required="true" type="time" key="endTime" widget="time"></wm-form-field>
+                                                                            <wm-anchor margin="unset 0.5em" caption="Check Out" name="anchorCheckOut" show="false" on-click="anchorCheckOutClick($event, widget)" class="input-group-addon"></wm-anchor>
+                                                                        </wm-container>
+                                                                    </wm-gridcolumn>
+                                                                </wm-gridrow>
+                                                                <wm-gridrow name="gridrow12">
+                                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn20">
+                                                                        <wm-form-field name="faultAnalysis" displayname="Fault Analysis" matchmode="startignorecase" show="true" is-related="true" generator="assigned" placeholder="" required="true" type="list" key="faultAnalysis" widget="select" displayexpression="analysis"
+                                                                            match="word"></wm-form-field>
+                                                                    </wm-gridcolumn>
+                                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn21">
+                                                                        <wm-form-field name="faultDescription" displayname="Fault Description" show="true" generator="assigned" placeholder="Enter text" required="true" type="string" key="faultDescription" widget="text" maxchars="255" inputtype="text"></wm-form-field>
+                                                                    </wm-gridcolumn>
+                                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn22">
+                                                                        <wm-form-field name="actionTaken" displayname="Action Taken" show="true" generator="assigned" placeholder="Enter text" required="true" type="string" key="actionTaken" widget="text" maxchars="255" inputtype="text"></wm-form-field>
+                                                                    </wm-gridcolumn>
+                                                                </wm-gridrow>
+                                                                <wm-gridrow name="gridrow13">
+                                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn23">
+                                                                        <wm-form-field name="errorCode" displayname="Error Code" show="true" generator="assigned" placeholder="Enter text" required="true" type="string" key="errorCode" widget="text" maxchars="255" inputtype="text"></wm-form-field>
+                                                                    </wm-gridcolumn>
+                                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn24">
+                                                                        <wm-form-field name="form_field8" displayname="Part Change Required" show="true" type="custom" key="form_field8" widget="switch" dataset="Yes,No" defaultvalue="No"></wm-form-field>
+                                                                    </wm-gridcolumn>
+                                                                    <wm-gridcolumn name="gridcolumn1" columnwidth="4">
+                                                                        <wm-form-field name="rmaId" displayname="Rma Id" show="false" placeholder="Enter text" type="string" key="rmaId" widget="text" inputtype="text" defaultvalue="bind:pageParams.rmaId"></wm-form-field>
+                                                                    </wm-gridcolumn>
+                                                                </wm-gridrow>
+                                                            </wm-layoutgrid>
+                                                            <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" placeholder="Enter Number" required="true" type="integer" key="id" widget="number" inputtype="number" readonly="true" step="0"></wm-form-field>
+                                                        </wm-liveform>
+                                                        <wm-container name="container4" show="bind:Widgets.RepairActivityLiveForm1.formWidgets.form_field8.datavalue == 'Yes' &amp;&amp; !Variables.svGetRMA.dataSet.isClosed" margin="24px unset unset unset" padding="24px unset unset unset" class="border top dashed">
+                                                            <wm-layoutgrid name="layoutgrid6">
+                                                                <wm-gridrow name="gridrow15">
+                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn26" horizontalalign="left">
+                                                                        <wm-label padding="unset" class="h3 font-bold" caption="Part Change Information" name="label18"></wm-label>
+                                                                    </wm-gridcolumn>
+                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn31" horizontalalign="right">
+                                                                        <wm-anchor margin="unset 0.5em" caption="Add Part" iconclass="fa fa-plus fa-lg" name="anchorAddPartAfter" show="bind:Variables.stvParts.dataSet.length > 0" on-click="Widgets.dialogAddPart.open()"></wm-anchor>
+                                                                    </wm-gridcolumn>
+                                                                </wm-gridrow>
+                                                                <wm-gridrow name="gridrow16">
+                                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn28">
+                                                                        <wm-anchor margin="16px unset unset unset" name="anchorAddPart" caption="Add Part" iconclass="fa fa-plus fa-lg" on-click="Widgets.dialogAddPart.open()" show="bind:Variables.stvParts.dataSet.length == 0" deferload="true" class="img-rounded" width="100%"
+                                                                            textalign="center" backgroundcolor="rgba(242, 244, 248, 1)" padding="24px unset"></wm-anchor>
+                                                                    </wm-gridcolumn>
+                                                                </wm-gridrow>
+                                                                <wm-gridrow name="gridrow17">
+                                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn30">
+                                                                        <wm-container name="containerPartsList" show="bind:Variables.stvParts.dataSet.length > 0" margin="16px unset unset unset">
+                                                                            <wm-table statehandler="URL" name="stvPartsTable1" title="" dataset="bind:Variables.stvParts.dataSet" navigation="None">
+                                                                                <wm-table-column binding="part.partMaterial.materialNumber" caption="Material Number" width="140px" edit-widget-type="text" show="true" type="string" readonly="false"></wm-table-column>
+                                                                                <wm-table-column binding="part.name" caption="Part Name" edit-widget-type="text" show="true" type="string" readonly="false"></wm-table-column>
+                                                                                <wm-table-column binding="part.partStockType.type" caption="Stock Type" edit-widget-type="text" show="true" type="string" readonly="false"></wm-table-column>
+                                                                                <wm-table-column binding="buyBack" caption="Buy Back" width="100px" edit-widget-type="text" show="true" type="string" readonly="false"></wm-table-column>
+                                                                                <wm-table-column binding="quantity" caption="Quantity" width="100px" edit-widget-type="text" show="true" type="string" readonly="false"></wm-table-column>
+                                                                                <wm-table-column binding="part.price" caption="Price" widget-type="label" edit-widget-type="text" show="true" type="string" readonly="false">
+                                                                                    <wm-label caption="bind:row.getProperty('part.price') | toCurrency: '₹'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                                                                                </wm-table-column>
+                                                                                <wm-table-column binding="discount" caption="Discount" widget-type="label" edit-widget-type="text" show="true" type="string" readonly="false">
+                                                                                    <wm-label caption="bind:row.getProperty('discount') + '%'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                                                                                </wm-table-column>
+                                                                                <wm-table-column binding="price" caption="Total Price" widget-type="label" edit-widget-type="text" show="true" type="string" readonly="false">
+                                                                                    <wm-label caption="bind:row.getProperty('price') | toCurrency: '₹': '2'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                                                                                </wm-table-column>
+                                                                                <wm-table-column binding="rowOperations" caption="" width="60px" col-class="text-center" edit-widget-type="text" searchable="false" show="true" type="custom" readonly="true" sortable="false"></wm-table-column>
+                                                                                <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent text-danger" iconclass="wi wi-trash" title="Delete" action="stvPartsTable1_deleterowAction($event, row)" disabled="false" widget-type="button"></wm-table-row-action>
+                                                                            </wm-table>
+                                                                        </wm-container>
+                                                                    </wm-gridcolumn>
+                                                                </wm-gridrow>
+                                                            </wm-layoutgrid>
+                                                        </wm-container>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow51">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn86">
+                                        <wm-container name="container15" show="bind:Variables.svGetRMA.dataSet.isClosed" class="border top dashed app-container" padding="24px unset unset unset" margin="24px unset unset unset">
+                                            <wm-layoutgrid name="layoutgrid13_1">
+                                                <wm-gridrow name="gridrow40">
+                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn64">
+                                                        <wm-label padding="unset" class="h3 font-bold " caption="Repair Activity Details" name="label51"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn65"></wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow41" padding="16px unset">
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn66">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium " caption="Service Date" name="label45_1"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium app-label" caption="bind:Variables.dbGetCurrentRepairActivity.firstRecord.date | toDate: 'yyyy-MM-dd'" name="label52"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn67">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium " caption="Start Time" name="label46_1"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium app-label" caption="bind:Variables.dbGetCurrentRepairActivity.firstRecord.startTime | toDate: 'hh:mm a'" name="label53"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn68">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium " caption="End Time" name="label47"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium app-label" caption="bind:Variables.dbGetCurrentRepairActivity.firstRecord.endTime | toDate: 'hh:mm a'" name="label54"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow42" padding="16px unset">
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn69">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium " caption="Fault Analysis" name="label48"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium app-label" caption="bind:Variables.dbGetCurrentRepairActivity.firstRecord.faultAnalysis.analysis" name="label55"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn70">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium " caption="Fault Description" name="label49"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium app-label" caption="bind:Variables.dbGetCurrentRepairActivity.dataSet[$i].faultDescription" name="label56"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn71">
+                                                        <wm-label padding="unset" class="h5 text-muted font-medium " caption="Action Taken" name="label50"></wm-label>
+                                                        <wm-label padding="unset" class="h4 font-medium app-label" caption="bind:Variables.dbGetCurrentRepairActivity.dataSet[$i].actionTaken" name="label57"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                        <wm-container name="container13" show="bind:Variables.svGetRMA.dataSet.isClosed" class="border top dashed app-container" margin="24px unset unset unset" padding="24px unset unset unset">
+                                            <wm-layoutgrid name="layoutgrid13">
+                                                <wm-gridrow name="gridrow35">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn55">
+                                                        <wm-label padding="unset" class="h3 font-bold app-label" caption="Service Details" name="label35"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow37" padding="16px unset unset unset">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn59">
+                                                        <wm-table statehandler="none" name="PartSaleTable1" title="" dataset="bind:Variables.SupportDBPartSaleData.dataSet" navigation="None" on-beforedatarender="PartSaleTable1Beforedatarender(widget, data, columns)" show="bind:Variables.SupportDBPartSaleData.dataSet.length > 0">
+                                                            <wm-table-column binding="part.name" caption="Part Name" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                                            <wm-table-column binding="part.price" caption="Unit Price" widget-type="label" edit-widget-type="text" show="true" type="string" readonly="false">
+                                                                <wm-label caption="bind:row.getProperty('part.price') | toCurrency: '₹'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                                                            </wm-table-column>
+                                                            <wm-table-column binding="quantity" caption="Quantity" width="90px" edit-widget-type="number" show="true" type="integer" generator="assigned" readonly="false"></wm-table-column>
+                                                            <wm-table-column binding="discount" caption="Discount" widget-type="label" width="90px" edit-widget-type="number" show="true" type="integer" generator="assigned" readonly="false">
+                                                                <wm-label caption="bind:row.getProperty('discount') + '%'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                                                            </wm-table-column>
+                                                            <wm-table-column binding="partMaterial.name" caption="Material" edit-widget-type="text" show="true" type="string" readonly="false"></wm-table-column>
+                                                            <wm-table-column binding="paymentType.type" caption="Payment Type" width="120px" edit-widget-type="text" show="true" type="string" generator="assigned" readonly="true"></wm-table-column>
+                                                            <wm-table-column binding="price" caption="Total" widget-type="label" edit-widget-type="number" show="true" type="integer" generator="assigned" readonly="false">
+                                                                <wm-label caption="bind:row.getProperty('price') | toCurrency: '₹': '2'" class="" conditionalclass="" conditionalstyle=""></wm-label>
+                                                            </wm-table-column>
+                                                        </wm-table>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                        <wm-container name="container28_1" show="bind:Variables.svGetRMA.dataSet.isClosed" class="border top dashed app-container" padding="24px unset unset unset" margin="24px unset unset unset">
+                                            <wm-layoutgrid name="layoutgrid15_1">
+                                                <wm-gridrow name="gridrow51_1">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn82">
+                                                        <wm-label padding="unset" class="h3 font-bold app-label" caption="Payment Details" name="label58"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow52" padding="16px unset">
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn84_1" padding="unset 8px unset unset">
+                                                        <wm-container name="container36" backgroundcolor="rgba(206, 214, 223, 0.5)" padding="16px 8px" horizontalalign="center" class="app-container img-rounded">
+                                                            <wm-label padding="unset" name="label36" caption="Service Charge" class="h5 text-muted font-medium app-label"></wm-label>
+                                                            <wm-label padding="unset" name="label37" caption="bind:Variables.svGetRMA.dataSet.quotationAmount | toCurrency: '₹'" class="h3 font-medium app-label" margin="8px unset unset unset"></wm-label>
+                                                        </wm-container>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn85_1" padding="unset 8px">
+                                                        <wm-container backgroundcolor="rgba(206, 214, 223, 0.5)" padding="16px 8px" horizontalalign="center" name="container37" class="app-container img-rounded">
+                                                            <wm-label padding="unset" caption="Total Parts Amount" class="h5 text-muted font-medium app-label" name="label61_1"></wm-label>
+                                                            <wm-label padding="unset" caption="bind:(getPartsTotal(Variables.SupportDBPartSaleData.dataSet) > 0 ? getPartsTotal(Variables.SupportDBPartSaleData.dataSet) : 0) | toCurrency: '₹'" name="label64_1" class="h3 font-medium app-label" margin="8px unset unset unset"></wm-label>
+                                                        </wm-container>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn86_1" padding="unset 8px">
+                                                        <wm-container backgroundcolor="rgba(206, 214, 223, 0.5)" padding="16px 8px" horizontalalign="center" name="container38" class="app-container img-rounded">
+                                                            <wm-label padding="unset" caption="GST (18%)" class="h5 text-muted font-medium app-label" name="label62_1"></wm-label>
+                                                            <wm-label padding="unset" caption="bind:(((Variables.svGetRMA.dataSet.quotationAmount + getPartsTotal(Variables.SupportDBPartSaleData.dataSet)) * 18)/100)  | toCurrency: '₹': '2'" name="label43" class="h3 font-medium app-label" margin="8px unset unset unset"></wm-label>
+                                                        </wm-container>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn87" padding="unset unset unset 8px">
+                                                        <wm-container backgroundcolor="rgba(209, 228, 255, 1)" padding="16px 8px" horizontalalign="center" name="container39" class="app-container img-rounded">
+                                                            <wm-label padding="unset" caption="Grand Total" class="h5 text-muted font-medium app-label" name="label63_1"></wm-label>
+                                                            <wm-label padding="unset" caption="bind:((Variables.svGetRMA.dataSet.quotationAmount + getPartsTotal(Variables.SupportDBPartSaleData.dataSet)) + (((Variables.svGetRMA.dataSet.quotationAmount + getPartsTotal(Variables.SupportDBPartSaleData.dataSet)) * 18)/100)) | toCurrency: '₹': '2'"
+                                                                name="label45" class="h3 text-primary font-bold app-label" margin="8px unset unset unset"></wm-label>
+                                                        </wm-container>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Add Part" iconclass="" name="dialogAddPart">
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-default btn-sm btn app-button" caption="Close" on-click="closeDialog()" name="button1"></wm-button>
+            <wm-button class="btn-primary btn-sm btn app-button" caption="Add Part" type="button" margin="unset" name="buttonAddPartToList" on-click="buttonAddPartToListClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+        <wm-liveform errormessage="" title="" iconclass="" defaultmode="Edit" dataset="bind:Variables.dbPartSale.dataSet" captionalign="left" captionposition="floating" name="PartSaleLiveForm1">
+            <wm-layoutgrid columns="2" name="layoutgrid7">
+                <wm-gridrow name="gridrow18">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn30_1">
+                        <wm-form-field name="part" displayname="Part" matchmode="startignorecase" show="true" is-related="true" generator="assigned" placeholder="" required="false" type="list" key="part" widget="select" displayexpression="name" match="word"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow19">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn32">
+                        <wm-form-field name="quantity" displayname="Quantity" show="true" generator="assigned" placeholder="Enter Number" required="false" type="integer" key="quantity" widget="number" inputtype="number" step="0" defaultvalue="1"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn33">
+                        <wm-form-field name="discount" displayname="Discount" show="true" generator="assigned" placeholder="Enter Number" required="false" type="integer" key="discount" widget="number" inputtype="number" step="0" defaultvalue="0"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn name="gridcolumn1" columnwidth="6">
+                        <wm-form-field name="paymentType" displayname="Payment Type" matchmode="startignorecase" show="true" is-related="true" generator="assigned" required="false" type="list" key="paymentType" widget="switch" displayexpression="type"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn2" columnwidth="6">
+                        <wm-form-field name="buyBack" displayname="Buy Back" show="true" generator="assigned" required="false" type="boolean" key="buyBack" viewmodewidget="default" widget="toggle"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow21">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn36" horizontalalign="center">
+                        <wm-layoutgrid name="layoutgrid8">
+                            <wm-gridrow name="gridrow22">
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn36_1">
+                                    <wm-container name="container7" show="bind:Widgets.PartSaleLiveForm1.dataoutput.part.id &amp;&amp; Widgets.PartSaleLiveForm1.dataoutput.quantity" backgroundcolor="rgba(209, 228, 255, 1)" class="img-rounded" padding="24px unset" margin="16px unset unset unset">
+                                        <wm-label padding="unset" class="h3" caption="Total Price" name="label21"></wm-label>
+                                        <wm-label padding="unset" class="h2 text-primary font-medium" name="labelTotalPartPrice" caption="bind:((Widgets.PartSaleLiveForm1.formWidgets.part.datavalue.price * (100-Widgets.PartSaleLiveForm1.formWidgets.discount.datavalue)/100) * Widgets.PartSaleLiveForm1.formWidgets.quantity.datavalue) | toCurrency: '₹': '2'"
+                                            margin="8px unset unset unset"></wm-label>
+                                    </wm-container>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow23">
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn38">
+                                    <wm-container name="container8" show="bind:!Widgets.PartSaleLiveForm1.formWidgets.quantity.datavalue || !Widgets.PartSaleLiveForm1.formWidgets.part.datavalue" class="img-rounded app-container" backgroundcolor="rgba(209, 228, 255, 1)" padding="24px unset"
+                                        margin="16px unset unset unset">
+                                        <wm-label padding="unset" class="h3 app-label" caption="Total Price will appear here" name="label24"></wm-label>
+                                    </wm-container>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" placeholder="Enter Number" required="true" type="integer" key="id" widget="number" inputtype="number" readonly="true" step="0"></wm-form-field>
+        </wm-liveform>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Close Ticket" iconclass="" name="dialogCloseTicket">
+        <wm-dialogactions name="dialogactions2">
+            <wm-button class="btn-default btn-sm btn app-button" caption="Cancel" on-click="closeDialog()" name="button3"></wm-button>
+            <wm-button class="btn-primary btn-sm btn app-button" caption="Close Ticket" type="button" margin="unset" name="buttonCloseTicket" disabled="bind:Widgets.checkboxAmountReceived.datavalue || !Widgets.ratingCustomerRatings.datavalue" on-click="buttonCloseTicketClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+        <wm-layoutgrid name="layoutgrid9">
+            <wm-gridrow name="gridrow24" padding="16px unset unset unset">
+                <wm-gridcolumn columnwidth="4" name="gridcolumn38_1" horizontalalign="center" padding="unset 8px unset unset">
+                    <wm-container name="container31" backgroundcolor="rgba(206, 214, 223, 0.5)" padding="24px 12px" class="app-container img-rounded">
+                        <wm-label padding="unset" name="label22" class="h4 app-label" caption="Service Charge"></wm-label>
+                        <wm-label padding="unset" class="h3 font-medium app-label" name="label25" caption="bind:Variables.svGetRMA.dataSet.quotationAmount | toCurrency: '₹'" margin="8px unset unset unset"></wm-label>
+                    </wm-container>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="4" name="gridcolumn39" horizontalalign="center" padding="unset 8px">
+                    <wm-container name="container33" backgroundcolor="rgba(206, 214, 223, 0.5)" padding="24px 12px" class="app-container img-rounded">
+                        <wm-label padding="unset" class="h4 app-label" name="label23" caption="Part Change Cost"></wm-label>
+                        <wm-label padding="unset" class="h3 font-medium app-label" name="label27" caption="bind:getPartsTotal(Variables.stvParts.dataSet) | toCurrency: '₹': '2'" margin="8px unset unset unset"></wm-label>
+                    </wm-container>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="4" name="gridcolumn69_1" padding="unset unset unset 8px">
+                    <wm-container backgroundcolor="rgba(206, 214, 223, 0.5)" padding="24px 12px" class="app-container img-rounded" name="container32" horizontalalign="center">
+                        <wm-label padding="unset" class="h4 app-label" caption="GST" name="label61_2"></wm-label>
+                        <wm-label padding="unset" name="label69" caption="bind:(((Variables.svGetRMA.dataSet.quotationAmount + getPartsTotal(Variables.stvParts.dataSet)) * 18)/100) | toCurrency: '₹': '2'" class="h3 font-medium app-label" margin="8px unset unset unset"></wm-label>
+                    </wm-container>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow25">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn40" horizontalalign="center">
+                    <wm-container name="container34" backgroundcolor="rgba(209, 228, 255, 1)" class="app-container img-rounded" padding="24px unset" margin="16px unset">
+                        <wm-label padding="unset" class="h3 app-label" name="label24_1" caption="Total Amount to be collected"></wm-label>
+                        <wm-label padding="unset" class="h2 text-primary font-medium" name="label28" caption="bind:((Variables.svGetRMA.dataSet.quotationAmount + getPartsTotal(Variables.stvParts.dataSet)) + (((Variables.svGetRMA.dataSet.quotationAmount + getPartsTotal(Variables.stvParts.dataSet)) * 18)/100)) | toCurrency: '₹': '2'"
+                            margin="8px unset unset unset"></wm-label>
+                    </wm-container>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow26">
+                <wm-gridcolumn columnwidth="4" name="gridcolumn42" horizontalalign="left">
+                    <wm-checkbox caption="Amount Received" name="checkboxAmountReceived"></wm-checkbox>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="5" name="gridcolumn68_1">
+                    <wm-composite name="composite1" captionposition="top" horizontalalign="left">
+                        <wm-rating name="ratingCustomerRatings" dataset="bind:Variables.dbRatings.dataSet" datafield="id" displayfield="rating" fontunit="em"></wm-rating>
+                        <wm-label class="p text-muted small" name="label29" caption="Customer Rating"></wm-label>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn43" horizontalalign="right">
+                    <wm-button class="btn btn-link" caption="Scan QR Code" type="button" margin="unset" name="button4" iconclass="fa fa-qrcode" padding="0px" height="auto"></wm-button>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Reschedule Visit" iconclass="" name="dialogRescheduleVisit">
+        <wm-dialogactions name="dialogactions3">
+            <wm-button class="btn-default btn-sm btn app-button" caption="Cancel" on-click="closeDialog()" name="button8"></wm-button>
+            <wm-button class="btn-primary btn-sm btn app-button" caption="Reschedule" type="button" margin="unset" name="buttonResVisit" disabled="bind:!Widgets.listAvailableSlots.selecteditem.id" on-click="Variables.svPatchEngineerAppointment.invoke()"></wm-button>
+        </wm-dialogactions>
+        <wm-container name="container37_1" class="panel border all app-container" bordercolor="rgba(206, 214, 223, 1)" overflow="hidden" margin="12px unset">
+            <wm-layoutgrid name="layoutgrid10">
+                <wm-gridrow name="gridrow28">
+                    <wm-gridcolumn columnwidth="7" name="gridcolumn45">
+                        <wm-calendar name="calendar1" controls="navigation" selectionmode="single" height="350" margin="unset unset 0px unset"></wm-calendar>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="5" name="gridcolumn46" class="app-grid-column border-left" padding="15px 20px">
+                        <wm-layoutgrid name="layoutgrid11">
+                            <wm-gridrow name="gridrow29">
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn47">
+                                    <wm-label padding="unset" name="label30" caption="bind:getFormattedDate(Widgets.calendar1.selecteddates.start)" class="h4 app-label font-medium"></wm-label>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow39">
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn68_2">
+                                    <wm-container name="container38_1" height="290px" overflow="auto">
+                                        <wm-container name="container12" show="bind:bookedSlots.length > 0" class="app-container panel no-border" backgroundcolor="rgba(255, 153, 31, 0.1)" margin="16px unset unset unset" padding="12px 20px 20px 20px" horizontalalign="center">
+                                            <wm-list listclass="list-group" itemclass="list-group-item no-bg" template="true" template-name="Contact List" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list app-livelist app-panel booked no-bg" datafield="All Fields" statehandler="URL" name="listBookedSlots"
+                                                dataset="bind:bookedSlots" navigation="None" disableitem="false">
+                                                <wm-listtemplate layout="inline" name="listtemplate1">
+                                                    <wm-container name="container2">
+                                                        <wm-label padding="unset" name="label6_1" class="text-muted font-medium app-label" caption="bind:Widgets.listBookedSlots.currentItem.name"></wm-label>
+                                                    </wm-container>
+                                                </wm-listtemplate>
+                                            </wm-list>
+                                            <wm-label padding="unset" name="label4" class="font-semibold app-label btn btn-warning btn-sm pointer-events-none" caption="Booked Slots" margin="unset unset 8px unset" fontsize="12" height="25px"></wm-label>
+                                        </wm-container>
+                                        <wm-container name="container42_1" margin="16px unset unset unset">
+                                            <wm-label padding="unset" class="h6 app-label text-muted" name="label5" caption="Available Slots" margin="unset unset 6px unset"></wm-label>
+                                            <wm-list listclass="list-group" itemclass="list-group-item" template="true" template-name="Contact List" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list app-livelist app-panel no-border slots" datafield="All Fields" statehandler="URL" dataset="bind:availableSlots"
+                                                navigation="None" name="listAvailableSlots">
+                                                <wm-listtemplate layout="inline" name="listtemplate2">
+                                                    <wm-container name="container3" horizontalalign="center">
+                                                        <wm-label padding="unset" class="text-primary font-medium app-label" caption="bind:Widgets.listAvailableSlots.currentItem.name" name="label7"></wm-label>
+                                                    </wm-container>
+                                                </wm-listtemplate>
+                                            </wm-list>
+                                        </wm-container>
+                                    </wm-container>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-container>
+    </wm-dialog>
+</wm-page>

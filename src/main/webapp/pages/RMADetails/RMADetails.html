@@ -1,0 +1,131 @@
+<wm-page pagetitle="RMA Details" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                        <wm-breadcrumb dataset="bind:Variables.stvBreadcrumbData.dataSet" class="attribute-based" name="breadcrumb1" itemid="id" itemlabel="label" itemicon="icon" itemlink="link" itemchildren="children"></wm-breadcrumb>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                        <wm-label padding="unset" name="label1" class="h2 font-bold" caption="RMA Details"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow11_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn19_1">
+                        <wm-panel iconclass="" autoclose="outsideClick" title="" name="panelRMADetails">
+                            <wm-layoutgrid name="layoutgrid5" columns="1">
+                                <wm-gridrow name="gridrow14">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn24_1">
+                                        <wm-layoutgrid name="layoutgrid6" columns="4">
+                                            <wm-gridrow name="gridrow20">
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn32">
+                                                    <wm-container name="container18_1">
+                                                        <wm-container class="media-left" name="container19">
+                                                            <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/job-requests-icon.svg" name="picture6"></wm-picture>
+                                                        </wm-container>
+                                                        <wm-container class="media-body media-middle" name="container20">
+                                                            <wm-label padding="unset" class="h5 text-muted font-medium" caption="RMA Number" name="label48"></wm-label>
+                                                            <wm-label padding="unset" class="h4 font-semibold" caption="bind:Variables.svGetRMA.dataSet.rmaNumber" margin="12px unset unset unset" name="label49"></wm-label>
+                                                        </wm-container>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn33">
+                                                    <wm-container name="container6">
+                                                        <wm-container class="media-left" name="container7">
+                                                            <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/customer-icon.svg" name="picture3"></wm-picture>
+                                                        </wm-container>
+                                                        <wm-container class="media-body media-middle" name="container8">
+                                                            <wm-label padding="unset" class="h5 text-muted font-medium" caption="Customer Name" name="label25"></wm-label>
+                                                            <wm-label padding="unset" class="h4 font-semibold" caption="bind:Variables.svGetRMA.dataSet.jobRequest.productSerial.customer.name" margin="12px unset unset unset" name="label26"></wm-label>
+                                                        </wm-container>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn34">
+                                                    <wm-container name="container9">
+                                                        <wm-container class="media-left" name="container10">
+                                                            <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/description-icon.svg" name="picture4"></wm-picture>
+                                                        </wm-container>
+                                                        <wm-container class="media-body media-middle" name="container11">
+                                                            <wm-label padding="unset" class="h5 text-muted font-medium" caption="Problem Description" name="label27"></wm-label>
+                                                            <wm-label padding="unset" class="h4 font-semibold" caption="bind:Variables.svGetRMA.dataSet.problemDescription" margin="12px unset unset unset" name="label28"></wm-label>
+                                                        </wm-container>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn35">
+                                                    <wm-container name="container12">
+                                                        <wm-container class="media-left" name="container13">
+                                                            <wm-picture resizemode="contain" height="50px" width="50px" picturesource="resources/images/imagelists/call-icon.svg" name="picture5"></wm-picture>
+                                                        </wm-container>
+                                                        <wm-container class="media-body media-middle" name="container14">
+                                                            <wm-label padding="unset" class="h5 text-muted font-medium" caption="Payment Type" name="label29"></wm-label>
+                                                            <wm-label padding="unset" class="h4 font-semibold" caption="bind:Variables.svGetRMA.dataSet.paymentType.type + &quot; (&quot; + (Variables.svGetRMA.dataSet.quotationAmount | toCurrency: '₹') + &quot;)&quot;" margin="12px unset unset unset" name="label30"></wm-label>
+                                                        </wm-container>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow15">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn25">
+                                        <wm-container name="container2" class="border top dashed" padding="24px unset unset unset" margin="24px unset unset unset">
+                                            <wm-layoutgrid name="layoutgrid3">
+                                                <wm-gridrow name="gridrow11">
+                                                    <wm-gridcolumn columnwidth="8" name="gridcolumn21">
+                                                        <wm-label padding="unset" name="label10" caption="Product Information" class="h3 font-bold" margin="unset unset 16px unset"></wm-label>
+                                                        <wm-layoutgrid name="layoutgrid4">
+                                                            <wm-gridrow name="gridrow9" padding="16px unset">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn17">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Serial Number" name="label11"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetRMA.dataSet.jobRequest.productSerial.serialNo" name="label17"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn18">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Warranty Status" name="label12"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="Not in Warranty" name="label18"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow10" padding="16px unset">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Model" name="label13"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetRMA.dataSet.jobRequest.productSerial.product.model" name="label19"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn20">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Warranty Start Date" name="label14"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetRMA.dataSet.jobRequest.productSerial.warrantyStartDate" name="label20"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow12" padding="16px unset">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn23">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Product Code" name="label15"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetRMA.dataSet.jobRequest.productSerial.product.code" name="label21"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn24">
+                                                                    <wm-label padding="unset" class="h5 text-muted font-medium" caption="Warranty End Date" name="label16"></wm-label>
+                                                                    <wm-label padding="unset" class="h4 font-medium" caption="bind:Variables.svGetRMA.dataSet.jobRequest.productSerial.warrantyEndDate" name="label22"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn22">
+                                                        <wm-container name="container14_1" class="img-rounded" horizontalalign="center" backgroundcolor="rgba(206, 214, 223, 0.5)" height="280px">
+                                                            <wm-picture resizemode="contain" name="picture1" picturesource="bind:Variables.svGetRMA.dataSet.jobRequest.productSerial.product.image" width="100%" height="100%" class="blend-multiply"></wm-picture>
+                                                        </wm-container>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

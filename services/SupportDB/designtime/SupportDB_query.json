@@ -1,0 +1,194 @@
+{
+  "getDashboardMetrics" : {
+    "name" : "getDashboardMetrics",
+    "description" : "getDashboardMetrics",
+    "version" : "V2",
+    "queryString" : "select \"JR\" as label, count(id) as total from job_request where is_rma_created IS NULL OR is_rma_created = 0\nunion\nselect \"RMA Created\" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and (is_approved = 0 or is_approved IS NULL)\nunion\nselect \"RMA Accepted\" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and is_approved = 1 and engineer_appointment_id IS NULL\nunion\nselect \"Engineer Assigned\" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and is_approved = 1 and engineer_appointment_id IS NOT NULL\nunion\nselect \"Closed RMAs\" as label, count(id) as total from rma where is_closed = 1 and is_approved = 1 and engineer_appointment_id IS NOT NULL",
+    "countQueryString" : "select count(*) from (select \"JR\" as label, count(id) as total from job_request where is_rma_created IS NULL OR is_rma_created = 0\nunion\nselect \"RMA Created\" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and (is_approved = 0 or is_approved IS NULL)\nunion\nselect \"RMA Accepted\" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and is_approved = 1 and engineer_appointment_id IS NULL\nunion\nselect \"Engineer Assigned\" as label, count(id) as total from rma where (is_closed IS NULL OR is_closed = 0) and is_approved = 1 and engineer_appointment_id IS NOT NULL\nunion\nselect \"Closed RMAs\" as label, count(id) as total from rma where is_closed = 1 and is_approved = 1 and engineer_appointment_id IS NOT NULL) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.wavemaker.servicetracker.supportdb.models.query.GetDashboardMetricsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "label",
+        "fieldName" : "label",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "total",
+        "fieldName" : "total",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getRatingsAggregation" : {
+    "name" : "getRatingsAggregation",
+    "description" : "getRatingsAggregation",
+    "version" : "V2",
+    "queryString" : "SELECT r.rating, COUNT(cs.rating_id) AS count, r.color_hex_code\nFROM rating r\nLEFT JOIN customer_satisfaction cs\nON r.id = cs.rating_id\nGROUP BY r.rating\nORDER BY r.score",
+    "countQueryString" : "select count(*) from (SELECT r.rating, COUNT(cs.rating_id) AS count, r.color_hex_code\nFROM rating r\nLEFT JOIN customer_satisfaction cs\nON r.id = cs.rating_id\nGROUP BY r.rating\nORDER BY r.score) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.wavemaker.servicetracker.supportdb.models.query.GetRatingsAggregationResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "rating",
+        "fieldName" : "rating",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "count",
+        "fieldName" : "_count",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "color_hex_code",
+        "fieldName" : "colorHexCode",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getTotalClosedRMAs" : {
+    "name" : "getTotalClosedRMAs",
+    "description" : "getTotalClosedRMAs",
+    "version" : "V2",
+    "queryString" : "select count(id) from rma where is_closed = 1",
+    "countQueryString" : "select count(*) from (select count(id) from rma where is_closed = 1) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.wavemaker.servicetracker.supportdb.models.query.GetTotalClosedRmasResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(id)",
+        "fieldName" : "count_id_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getTotalJobRequests" : {
+    "name" : "getTotalJobRequests",
+    "description" : "getTotalJobRequests",
+    "version" : "V2",
+    "queryString" : "select count(id) from job_request where is_rma_created IS NULL OR is_rma_created = 0",
+    "countQueryString" : "select count(*) from (select count(id) from job_request where is_rma_created IS NULL OR is_rma_created = 0) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.wavemaker.servicetracker.supportdb.models.query.GetTotalJobRequestsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(id)",
+        "fieldName" : "count_id_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getTotalOutstandingRMAs" : {
+    "name" : "getTotalOutstandingRMAs",
+    "description" : "getTotalOutstandingRMAs",
+    "version" : "V2",
+    "queryString" : "select count(id) from rma where is_closed IS NULL OR is_closed = 0",
+    "countQueryString" : "select count(*) from (select count(id) from rma where is_closed IS NULL OR is_closed = 0) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.wavemaker.servicetracker.supportdb.models.query.GetTotalOutstandingRmasResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(id)",
+        "fieldName" : "count_id_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "username" : "{DBUsername}",
+  "password" : "7b6a43524a37280e6a656b6c0d0e210d4b393f3a21080c6812",
+  "url" : "jdbc:mariadb://{DBHost}:{DBPort}/SupportDB?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true",
+  "driverClass" : "org.mariadb.jdbc.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.MySQLDialect",
+  "serviceId" : "SupportDB",
+  "packageName" : "com.wavemaker.servicetracker.supportdb",
+  "dbType" : "MySQL",
+  "host" : "{DBHost}",
+  "dbName" : "SupportDB",
+  "port" : "{DBPort}",
+  "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "customer",
+    "schema" : null
+  }, {
+    "table" : "customer_satisfaction",
+    "schema" : null
+  }, {
+    "table" : "engineer",
+    "schema" : null
+  }, {
+    "table" : "engineer_appointment",
+    "schema" : null
+  }, {
+    "table" : "fault_analysis",
+    "schema" : null
+  }, {
+    "table" : "job_request",
+    "schema" : null
+  }, {
+    "table" : "part",
+    "schema" : null
+  }, {
+    "table" : "part_material",
+    "schema" : null
+  }, {
+    "table" : "part_sale",
+    "schema" : null
+  }, {
+    "table" : "part_stock_type",
+    "schema" : null
+  }, {
+    "table" : "payment_type",
+    "schema" : null
+  }, {
+    "table" : "product",
+    "schema" : null
+  }, {
+    "table" : "product_serial",
+    "schema" : null
+  }, {
+    "table" : "rating",
+    "schema" : null
+  }, {
+    "table" : "repair_activity",
+    "schema" : null
+  }, {
+    "table" : "rma",
+    "schema" : null
+  }, {
+    "table" : "service_area",
+    "schema" : null
+  }, {
+    "table" : "service_mode",
+    "schema" : null
+  }, {
+    "table" : "service_type",
+    "schema" : null
+  }, {
+    "table" : "time_slot",
+    "schema" : null
+  }, {
+    "table" : "user_login",
+    "schema" : null
+  }, {
+    "table" : "user_role",
+    "schema" : null
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null,
+    "reImport" : false
+  },
+  "readOnly" : false,
+  "metadataDialect" : ""
+}

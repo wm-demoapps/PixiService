@@ -1,0 +1,56 @@
+[ {
+  "urlPattern" : "/pages/ClosedRMAs/**",
+  "permission" : "Role",
+  "roles" : [ "Service Coordinator" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Dashboard/**",
+  "permission" : "Role",
+  "roles" : [ "Service Coordinator" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/JobRequestDetails/**",
+  "permission" : "Role",
+  "roles" : [ "Service Coordinator" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/JobRequests/**",
+  "permission" : "Role",
+  "roles" : [ "Service Coordinator" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Login/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Main/**",
+  "permission" : "Role",
+  "roles" : [ "Service Coordinator" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/MyRMAs/**",
+  "permission" : "Role",
+  "roles" : [ "Engineer" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/OutstandingRMAs/**",
+  "permission" : "Role",
+  "roles" : [ "Service Coordinator" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/PendingRMAs/**",
+  "permission" : "Role",
+  "roles" : [ "Approver" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/RMADetails/**",
+  "permission" : "Role",
+  "roles" : [ "Service Coordinator", "Approver" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/RMAEngineerDetails/**",
+  "permission" : "Role",
+  "roles" : [ "Engineer", "Service Coordinator" ],
+  "httpMethod" : null
+} ]
