@@ -1,7 +1,7 @@
 # About
 Pixi is a comprehensive printer service application designed to streamline the entire process of servicing requests, managing Return Merchandise Authorization (RMA), and coordinating on-site repairs. The application caters to customers, service center coordinators, approvers, and engineers, ensuring a seamless and efficient service experience.
 
-<a href="https://showcase.onwavemaker.com/Pixi/" target="_blank">Click Here</a> for more details on Pixi Service app
+<a href="https://showcase.onwavemaker.com/PixiService/" target="_blank">Click Here</a> for more details on Pixi Service app
 
 # Personas
 ## Service Center Coordinator:
